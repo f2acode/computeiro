@@ -14,14 +14,22 @@ Profile _onChangeCurrentExam(Profile state, ChangeCurrentExamAction action) =>
     );
 
 Profile _onChangeAlternative(Profile state, SelectAlternativeAction action) {
-  print(action.alternative);
+  handleInsertAnswer() {
+    if (state.poscompStatus.answers.isEmpty)
+      return List.castFrom<dynamic, String>(
+          List.from(state.poscompStatus.answers))
+        ..insert(action.index, action.alternative);
+
+    return List.castFrom<dynamic, String>(
+        List.from(state.poscompStatus.answers))
+      ..removeAt(action.index)
+      ..insert(action.index, action.alternative);
+  }
+
   return Profile(
     poscompStatus: PoscompStatus(
       exam: state.poscompStatus.exam,
-      answers: state.poscompStatus.answers == null
-          ? [action.alternative]
-          : List.from(state.poscompStatus.answers)
-        ..add(action.alternative),
+      answers: handleInsertAnswer(),
     ),
   );
 }

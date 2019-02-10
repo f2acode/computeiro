@@ -13,40 +13,30 @@ class PoscompExam extends StatelessWidget {
       builder: (context, vm) {
         return Scaffold(
           appBar: AppBar(
-            title: Text(
-                'Prova do ano de ${vm.poscomp.exams[vm.profile.poscompStatus.exam].year}'),
+            title: Text('Prova do ano de ${vm.examYear}'),
           ),
           body: Padding(
             padding: EdgeInsets.all(15),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                MarkdownBody(
-                  data: vm.poscomp.exams[vm.profile.poscompStatus.exam]
-                      .questions[0].text
-                      .toString(),
-                ),
+                MarkdownBody(data: vm.questionText),
                 Row(
                   children: <Widget>[
                     Radio(
                       value: 'A',
-                      groupValue: vm.profile.poscompStatus.answers == null
-                          ? ''
-                          : vm.profile.poscompStatus.answers.last,
+                      groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),
-                    Text('Carnivore' +
-                        vm.profile.poscompStatus.answers.toString())
+                    Text('Carnivore')
                   ],
                 ),
                 Row(
                   children: <Widget>[
                     Radio(
                       value: 'B',
-                      groupValue: vm.profile.poscompStatus.answers == null
-                          ? ''
-                          : vm.profile.poscompStatus.answers.last,
+                      groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),
@@ -57,9 +47,7 @@ class PoscompExam extends StatelessWidget {
                   children: <Widget>[
                     Radio(
                       value: 'C',
-                      groupValue: vm.profile.poscompStatus.answers == null
-                          ? ''
-                          : vm.profile.poscompStatus.answers.last,
+                      groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),
@@ -70,9 +58,7 @@ class PoscompExam extends StatelessWidget {
                   children: <Widget>[
                     Radio(
                       value: 'D',
-                      groupValue: vm.profile.poscompStatus.answers == null
-                          ? ''
-                          : vm.profile.poscompStatus.answers.last,
+                      groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),
@@ -83,9 +69,7 @@ class PoscompExam extends StatelessWidget {
                   children: <Widget>[
                     Radio(
                       value: 'E',
-                      groupValue: vm.profile.poscompStatus.answers == null
-                          ? ''
-                          : vm.profile.poscompStatus.answers.last,
+                      groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),

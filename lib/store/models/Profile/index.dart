@@ -7,5 +7,5 @@ class Profile {
 
   Profile({this.poscompStatus});
 
-  factory Profile.init() => new Profile();
+  factory Profile.init() => new Profile(poscompStatus: new PoscompStatus());
 }

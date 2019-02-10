@@ -17,12 +17,13 @@ class PoscompLoadedAction {
 
 class SelectAlternativeAction {
   final String alternative;
+  final int index;
 
-  SelectAlternativeAction(this.alternative);
+  SelectAlternativeAction(this.alternative, this.index);
 
   @override
   String toString() {
-    return 'SelectAlternativeAction{alternative: $alternative}';
+    return 'SelectAlternativeAction{alternative: $alternative, index: $index}';
   }
 }
 
