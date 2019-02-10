@@ -15,6 +15,17 @@ class PoscompLoadedAction {
   }
 }
 
+class SelectAlternativeAction {
+  final String alternative;
+
+  SelectAlternativeAction(this.alternative);
+
+  @override
+  String toString() {
+    return 'SelectAlternativeAction{alternative: $alternative}';
+  }
+}
+
 class ChangeCurrentExamAction {
   final int examId;
 
@@ -22,7 +33,7 @@ class ChangeCurrentExamAction {
 
   @override
   String toString() {
-    return 'PoscompLoadedAction{examId: $examId}';
+    return 'ChangeCurrentExamAction{examId: $examId}';
   }
 }
 
