@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:redux/redux.dart';
 
 import 'package:computeiro/store/models/index.dart';
+import 'package:computeiro/store/models/Poscomp/index.dart';
 //import 'package:computeiro/store/actions/index.dart';
 
 class ViewModel {

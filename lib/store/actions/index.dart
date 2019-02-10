@@ -1,4 +1,4 @@
-import 'package:computeiro/store/models/index.dart';
+import 'package:computeiro/store/models/Poscomp/index.dart';
 
 class LoadPoscompAction {}
 
@@ -15,14 +15,14 @@ class PoscompLoadedAction {
   }
 }
 
-class UpdatePoscompBalanceAction {
-  final int newPoscompBalance;
+class ChangeCurrentExamAction {
+  final int examId;
 
-  UpdatePoscompBalanceAction(this.newPoscompBalance);
+  ChangeCurrentExamAction(this.examId);
 
   @override
   String toString() {
-    return 'UpdatePoscompBalanceAction{updatedPoscompBalance: $newPoscompBalance}';
+    return 'PoscompLoadedAction{examId: $examId}';
   }
 }
 

@@ -6,20 +6,27 @@ class AppState {
   final bool isLoading;
   final int bottomNavIndex;
   final Poscomp poscomp;
+  final Profile profile;
 
-  AppState({this.isLoading = false, this.poscomp, this.bottomNavIndex});
+  AppState({
+    this.isLoading = false,
+    this.poscomp,
+    this.bottomNavIndex,
+    this.profile,
+  });
 
-  factory AppState.loading() => AppState(
+  factory AppState.initial() => new AppState(
         isLoading: true,
-        poscomp: Poscomp(balance: 0),
-        bottomNavIndex: 0,
+        poscomp: Poscomp.init(),
+        bottomNavIndex: 1,
       );
 
   AppState copyWith({
     bool isLoading,
     Poscomp poscomp,
+    int bottomNavIndex,
   }) {
-    return AppState(
+    return new AppState(
       isLoading: isLoading ?? this.isLoading,
       poscomp: poscomp ?? this.poscomp,
       bottomNavIndex: bottomNavIndex ?? this.bottomNavIndex,
@@ -27,7 +34,8 @@ class AppState {
   }
 
   @override
-  int get hashCode => isLoading.hashCode ^ poscomp.hashCode;
+  int get hashCode =>
+      isLoading.hashCode ^ poscomp.hashCode ^ bottomNavIndex.hashCode;
 
   @override
   bool operator ==(Object other) =>
@@ -35,10 +43,11 @@ class AppState {
       other is AppState &&
           runtimeType == other.runtimeType &&
           isLoading == other.isLoading &&
-          poscomp == other.poscomp;
+          poscomp == other.poscomp &&
+          bottomNavIndex == other.bottomNavIndex;
 
   @override
   String toString() {
-    return 'AppState{isLoading: $isLoading, poscomp: $poscomp}';
+    return 'AppState{isLoading: $isLoading, poscomp: $poscomp, bottomNavIndex: $bottomNavIndex}';
   }
 }

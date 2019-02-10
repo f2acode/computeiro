@@ -9,6 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.2
+  flutter_markdown: ^0.2.0
   flutter_redux: ^0.5.3
 
 dev_dependencies:
