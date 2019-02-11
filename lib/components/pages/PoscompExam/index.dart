@@ -75,6 +75,32 @@ class PoscompExam extends StatelessWidget {
                     ),
                     Text('Carnivore')
                   ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      padding: EdgeInsets.only(right: 5, left: 5),
+                      child: RaisedButton(
+                        child: Text('VOLTAR'),
+                        onPressed: vm.onPreviousQuestion,
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(right: 5, left: 5),
+                      child: RaisedButton(
+                        child: Text('TERMINAR'),
+                        onPressed: () => print('TERMINAR'),
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(right: 5, left: 5),
+                      child: RaisedButton(
+                        child: Text('PRÓXIMA'),
+                        onPressed: vm.onNextQuestion,
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),

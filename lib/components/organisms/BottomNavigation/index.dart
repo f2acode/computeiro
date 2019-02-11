@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:computeiro/store/models/app_state.dart';
-import 'package:computeiro/components/organisms/index.dart';
+import 'package:computeiro/components/pages/index.dart';
 import 'package:computeiro/components/organisms/BottomNavigation/texts.dart';
 import 'package:computeiro/components/organisms/BottomNavigation/view_model.dart';
 
 class BottomNavigator extends StatelessWidget {
   final _widgetOptions = [
-    Text('Index 0: Hozme'),
+    Text('Bem vindo ao nosso incrível app!'),
     PoscompExams(),
   ];
 

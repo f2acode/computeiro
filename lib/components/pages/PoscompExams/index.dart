@@ -3,7 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:computeiro/store/models/index.dart';
 import 'package:computeiro/components/organisms/index.dart';
-import 'package:computeiro/components/organisms/PoscompExams/view_model.dart';
+import 'package:computeiro/components/pages/PoscompExams/view_model.dart';
 
 class PoscompExams extends StatelessWidget {
   @override
