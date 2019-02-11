@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 import 'package:computeiro/store/models/index.dart';
-import 'package:computeiro/components/organisms/index.dart';
+import 'package:computeiro/components/pages/index.dart';
 import 'package:computeiro/components/organisms/PoscompExams/view_model.dart';
 
 class PoscompExams extends StatelessWidget {
@@ -12,13 +13,29 @@ class PoscompExams extends StatelessWidget {
       converter: ViewModel.fromStore,
       builder: (context, vm) {
         return Scaffold(
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(child: ExamsList()),
-              ],
-            ),
+          body: Column(
+            children: <Widget>[
+              Expanded(
+                child: ListView.builder(
+                  itemCount: vm.poscomp.exams.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: MarkdownBody(
+                        data: vm.poscomp.exams[index].year.toString(),
+                      ),
+                      onTap: () {
+                        vm.onChangeCurrentExam(index);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PoscompExam()),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         );
       },
