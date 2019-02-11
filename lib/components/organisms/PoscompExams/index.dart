@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 import 'package:computeiro/store/models/index.dart';
 import 'package:computeiro/components/pages/index.dart';
@@ -20,9 +19,10 @@ class PoscompExams extends StatelessWidget {
                   itemCount: vm.poscomp.exams.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      title: MarkdownBody(
-                        data: vm.poscomp.exams[index].year.toString(),
-                      ),
+                      title: Text(
+                          'POSCOMP ${vm.poscomp.exams[index].year.toString()}'),
+                      subtitle: Text('Inserção das provas em andamento'),
+                      leading: Icon(Icons.computer),
                       onTap: () {
                         vm.onChangeCurrentExam(index);
                         Navigator.push(
