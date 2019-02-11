@@ -5,7 +5,7 @@ import 'package:redux/redux.dart';
 import 'package:computeiro/app_theme.dart';
 import 'package:computeiro/store/models/index.dart';
 import 'package:computeiro/store/reducers/app_reducer.dart';
-import 'package:computeiro/components/organisms/index.dart';
+import 'package:computeiro/components/pages/index.dart';
 
 void main() => runApp(App());
 
