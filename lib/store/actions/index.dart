@@ -8,11 +8,6 @@ class PoscompLoadedAction {
   final Poscomp poscomp;
 
   PoscompLoadedAction(this.poscomp);
-
-  @override
-  String toString() {
-    return 'PoscompLoadedAction{poscomp: $poscomp}';
-  }
 }
 
 class NextQuestionAction {
@@ -40,4 +35,21 @@ class ChangeBottomNavIndexAction {
   final int newBottomNavIndex;
 
   ChangeBottomNavIndexAction(this.newBottomNavIndex);
+}
+
+/* REMOVE AFTER */
+
+class PerformSearchAction {
+  PerformSearchAction(this.searchTerm);
+  String searchTerm;
+}
+
+class SearchResultsAction {
+  SearchResultsAction(this.results);
+  String results;
+}
+
+class SearchErrorAction {
+  SearchErrorAction(this.error);
+  String error;
 }

@@ -1,4 +1,5 @@
-export 'package:computeiro/store/reducers/loading_reducer.dart';
-export 'package:computeiro/store/reducers/bottom_nav_reducer.dart';
-export 'package:computeiro/store/reducers/poscomp_reducer.dart';
-export 'package:computeiro/store/reducers/profile_reducer.dart';
+export 'package:computeiro/store/reducers/Loading/index.dart';
+export 'package:computeiro/store/reducers/BottomNav/index.dart';
+export 'package:computeiro/store/reducers/Poscomp/index.dart';
+export 'package:computeiro/store/reducers/Profile/index.dart';
+export 'package:computeiro/store/reducers/DumbSearch/index.dart';

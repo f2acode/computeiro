@@ -10,12 +10,16 @@ class ViewModel {
   final bool loading;
   final int bottomNavIndex;
   final Function(int) onChangeBottomNavIndex;
+  final Function(String) onDispatchTest;
+  final String dumbSearch;
 
   ViewModel({
-    @required this.poscomp,
-    @required this.loading,
-    @required this.onChangeBottomNavIndex,
-    @required this.bottomNavIndex,
+    this.poscomp,
+    this.loading,
+    this.onChangeBottomNavIndex,
+    this.bottomNavIndex,
+    this.onDispatchTest,
+    this.dumbSearch,
   });
 
   static ViewModel fromStore(Store<AppState> store) {
@@ -26,6 +30,10 @@ class ViewModel {
       onChangeBottomNavIndex: (int newValue) {
         store.dispatch(ChangeBottomNavIndexAction(newValue));
       },
+      onDispatchTest: (String newValue) {
+        store.dispatch(PerformSearchAction(newValue));
+      },
+      dumbSearch: store.state.dumbSearch,
     );
   }
 }

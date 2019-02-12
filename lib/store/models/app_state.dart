@@ -7,12 +7,14 @@ class AppState {
   final int bottomNavIndex;
   final Poscomp poscomp;
   final Profile profile;
+  final String dumbSearch;
 
   AppState({
     this.isLoading = false,
     this.poscomp,
     this.bottomNavIndex,
     this.profile,
+    this.dumbSearch,
   });
 
   factory AppState.initial() => new AppState(
@@ -20,6 +22,7 @@ class AppState {
         bottomNavIndex: 1,
         poscomp: Poscomp.init(),
         profile: Profile.init(),
+        dumbSearch: '',
       );
 
   AppState copyWith({

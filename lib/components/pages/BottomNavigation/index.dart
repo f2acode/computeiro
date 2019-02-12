@@ -7,10 +7,26 @@ import 'package:computeiro/components/pages/BottomNavigation/texts.dart';
 import 'package:computeiro/components/pages/BottomNavigation/view_model.dart';
 
 class BottomNavigator extends StatelessWidget {
-  final _widgetOptions = [
-    Text('Bem vindo computeirx!'),
-    PoscompExams(),
-  ];
+  _handleWidgetOption(int index, ViewModel vm) {
+    switch (index) {
+      case 0:
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(Texts.welcome),
+            RaisedButton(
+              child: Text('Dumb request!!'),
+              onPressed: () => vm.onDispatchTest('aa'),
+            ),
+            Text(vm.dumbSearch)
+          ],
+        );
+      case 1:
+        return PoscompExams();
+      default:
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +41,7 @@ class BottomNavigator extends StatelessWidget {
             ),
           ),
           body: Center(
-            child: _widgetOptions.elementAt(vm.bottomNavIndex),
+            child: _handleWidgetOption(vm.bottomNavIndex, vm),
           ),
           bottomNavigationBar: BottomNavigationBar(
             items: <BottomNavigationBarItem>[

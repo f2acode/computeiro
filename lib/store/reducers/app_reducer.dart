@@ -7,5 +7,6 @@ AppState appReducer(AppState state, action) {
     poscomp: poscompReducer(state.poscomp, action),
     profile: profileReducer(state.profile, action),
     bottomNavIndex: bottomNavReducer(state.bottomNavIndex, action),
+    dumbSearch: dumbSearch(state.dumbSearch, action),
   );
 }
