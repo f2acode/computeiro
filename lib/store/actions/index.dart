@@ -50,6 +50,6 @@ class SearchResultsAction {
 }
 
 class SearchErrorAction {
-  SearchErrorAction(this.error);
-  String error;
+  SearchErrorAction(this.errorMessage);
+  String errorMessage;
 }

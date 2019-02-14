@@ -1,4 +1,7 @@
 import 'package:redux/redux.dart';
+import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:computeiro/store/actions/index.dart';
 
 final dumbSearch = combineReducers<String>([
@@ -11,6 +14,14 @@ String _handleSearchResult(String state, SearchResultsAction action) {
 }
 
 String _handleSearchError(String state, SearchErrorAction action) {
-  print(action.error);
+  Fluttertoast.showToast(
+    msg: action.errorMessage,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.TOP,
+    timeInSecForIos: 1,
+    backgroundColor: Colors.red,
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
   return state;
 }

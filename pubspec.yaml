@@ -13,6 +13,7 @@ dependencies:
   flutter_redux: ^0.5.3
   redux_epics: ^0.10.3
   http: ^0.12.0+1
+  fluttertoast: ^3.0.0
 
 dev_dependencies:
   flutter_test:
