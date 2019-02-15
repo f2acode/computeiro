@@ -11,11 +11,16 @@ import 'package:computeiro/store/middlewares/index.dart';
 
 void main() => runApp(App());
 
+typedef ItemCreator = Stream<dynamic> Function(
+  Stream<dynamic> stream,
+  EpicStore<AppState> appState,
+);
+
 class App extends StatelessWidget {
   final Store<AppState> store = Store<AppState>(
     appReducer,
     initialState: AppState.initial(),
-    middleware: [EpicMiddleware(epics)],
+    middleware: [EpicMiddleware<dynamic>(epics)],
   );
 
   @override
