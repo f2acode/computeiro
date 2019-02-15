@@ -1,7 +1,7 @@
 import 'package:computeiro/store/models/index.dart';
 import 'package:computeiro/store/reducers/index.dart';
 
-AppState appReducer(AppState state, action) {
+AppState appReducer(AppState state, dynamic action) {
   return AppState(
     isLoading: loadingReducer(state.isLoading, action),
     poscomp: poscompReducer(state.poscomp, action),

@@ -1,7 +1,7 @@
 import 'package:computeiro/store/models/Poscomp/question.dart';
 
 class Questions {
-  static final List<Question> questions2018 = [
+  static final List<Question> questions2018 = <Question>[
     Question(
         text:
             '''Para quais valores de _a_, _b_, _c_, _d_, _e_, _f_ a matriz _j_= ![Flutter logo](https://upload.wikimedia.org/wikipedia/commons/b/b9/Matrix_%28maths%29%2C_revised.png) é diagonizável?''',

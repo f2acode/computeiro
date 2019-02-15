@@ -3,9 +3,9 @@ import 'package:computeiro/store/models/Profile/poscomp_status.dart';
 
 @immutable
 class Profile {
+  const Profile({this.poscompStatus});
+
+  factory Profile.init() => Profile(poscompStatus: PoscompStatus());
+
   final PoscompStatus poscompStatus;
-
-  Profile({this.poscompStatus});
-
-  factory Profile.init() => new Profile(poscompStatus: new PoscompStatus());
 }

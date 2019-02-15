@@ -8,7 +8,9 @@ Stream<dynamic> searchEpic(
   Stream<PerformSearchAction> actions,
   EpicStore<AppState> store,
 ) {
-  return actions.asyncMap<dynamic>((action) => fetchPost()
-      .then<dynamic>((results) => SearchResultsAction(results['title']))
-      .catchError((error) => SearchErrorAction(error.message)));
+  return actions.asyncMap<dynamic>((PerformSearchAction action) => fetchPost()
+      .then<dynamic>(
+        (Map<String, dynamic> results) => SearchResultsAction(results['title']),
+      )
+      .catchError((Exception error) => SearchErrorAction(error.toString())));
 }

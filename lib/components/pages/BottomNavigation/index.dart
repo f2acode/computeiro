@@ -7,23 +7,22 @@ import 'package:computeiro/components/pages/BottomNavigation/texts.dart';
 import 'package:computeiro/components/pages/BottomNavigation/view_model.dart';
 
 class BottomNavigator extends StatelessWidget {
-  _handleWidgetOption(int index, ViewModel vm) {
+  Widget _handleWidgetOption(int index, ViewModel vm) {
     switch (index) {
-      case 0:
+      case 1:
+        return PoscompExams();
+      default:
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(Texts.welcome),
+            const Text(Texts.welcome),
             RaisedButton(
-              child: Text('Dumb request!!'),
+              child: const Text('Dumb request!!'),
               onPressed: () => vm.onDispatchTest('aa'),
             ),
             Text(vm.dumbSearch)
           ],
         );
-      case 1:
-        return PoscompExams();
-      default:
         break;
     }
   }
@@ -32,7 +31,7 @@ class BottomNavigator extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, ViewModel>(
       converter: ViewModel.fromStore,
-      builder: (context, vm) {
+      builder: (BuildContext context, ViewModel vm) {
         return Scaffold(
           appBar: AppBar(
             title: Text(
@@ -44,7 +43,7 @@ class BottomNavigator extends StatelessWidget {
             child: _handleWidgetOption(vm.bottomNavIndex, vm),
           ),
           bottomNavigationBar: BottomNavigationBar(
-            items: <BottomNavigationBarItem>[
+            items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 title: Text('Home'),

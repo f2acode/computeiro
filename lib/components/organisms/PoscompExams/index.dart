@@ -10,25 +10,26 @@ class PoscompExams extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, ViewModel>(
       converter: ViewModel.fromStore,
-      builder: (context, vm) {
+      builder: (BuildContext context, ViewModel vm) {
         return Scaffold(
           body: Column(
             children: <Widget>[
               Expanded(
                 child: ListView.builder(
                   itemCount: vm.poscomp.exams.length,
-                  itemBuilder: (context, index) {
+                  itemBuilder: (BuildContext context, int index) {
                     return ListTile(
                       title: Text(
                           'POSCOMP ${vm.poscomp.exams[index].year.toString()}'),
-                      subtitle: Text('Inserção das provas em andamento'),
-                      leading: Icon(Icons.computer),
+                      subtitle: const Text('Inserção das provas em andamento'),
+                      leading: const Icon(Icons.computer),
                       onTap: () {
                         vm.onChangeCurrentExam(index);
-                        Navigator.push(
+                        Navigator.push<MaterialPageRoute<PoscompExam>>(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => PoscompExam()),
+                          MaterialPageRoute<MaterialPageRoute<PoscompExam>>(
+                            builder: (BuildContext context) => PoscompExam(),
+                          ),
                         );
                       },
                     );

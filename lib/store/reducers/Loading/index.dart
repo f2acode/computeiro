@@ -5,6 +5,6 @@ final loadingReducer = combineReducers<bool>([
   TypedReducer<bool, PoscompNotLoadedAction>(_setLoaded),
 ]);
 
-bool _setLoaded(bool state, action) {
+bool _setLoaded(bool state, PoscompNotLoadedAction action) {
   return false;
 }

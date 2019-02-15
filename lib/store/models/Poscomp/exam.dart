@@ -4,8 +4,7 @@ import 'package:computeiro/store/models/Poscomp/question.dart';
 
 @immutable
 class Exam {
+  const Exam({this.questions, this.year});
   final List<Question> questions;
   final int year;
-
-  Exam({this.questions, this.year});
 }

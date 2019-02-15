@@ -16,14 +16,14 @@ Profile _onChangeCurrentExam(Profile state, ChangeCurrentExamAction action) =>
     );
 
 Profile _onChangeAlternative(Profile state, SelectAlternativeAction action) {
-  List<String> answers = state.poscompStatus.answers;
+  final List<String> answers = state.poscompStatus.answers;
 
-  handleInsertAnswer() {
+  List<String> handleInsertAnswer() {
     if (answers.isEmpty)
-      return List.castFrom<dynamic, String>(List.from(answers))
+      return List.castFrom<dynamic, String>(List<String>.from(answers))
         ..insert(action.index, action.alternative);
 
-    return List.castFrom<dynamic, String>(List.from(answers))
+    return List.castFrom<dynamic, String>(List<String>.from(answers))
       ..removeAt(action.index)
       ..insert(action.index, action.alternative);
   }
@@ -38,12 +38,13 @@ Profile _onChangeAlternative(Profile state, SelectAlternativeAction action) {
 }
 
 Profile _onNextQuestionAction(Profile state, NextQuestionAction action) {
-  int newQuestionIndex = state.poscompStatus.questionIndex + 1;
-  List<String> answers = state.poscompStatus.answers;
+  final int newQuestionIndex = state.poscompStatus.questionIndex + 1;
+  final List<String> answers = state.poscompStatus.answers;
 
-  handleAddAnswer() {
+  List<String> handleAddAnswer() {
     if (newQuestionIndex >= answers.length)
-      return List.castFrom<dynamic, String>(List.from(answers))..add('');
+      return List.castFrom<dynamic, String>(List<dynamic>.from(answers))
+        ..add('');
 
     return answers;
   }

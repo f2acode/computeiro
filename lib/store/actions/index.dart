@@ -5,9 +5,8 @@ class LoadPoscompAction {}
 class PoscompNotLoadedAction {}
 
 class PoscompLoadedAction {
-  final Poscomp poscomp;
-
   PoscompLoadedAction(this.poscomp);
+  final Poscomp poscomp;
 }
 
 class NextQuestionAction {
@@ -19,22 +18,19 @@ class PreviousQuestionAction {
 }
 
 class SelectAlternativeAction {
+  SelectAlternativeAction(this.alternative, this.index);
   final String alternative;
   final int index;
-
-  SelectAlternativeAction(this.alternative, this.index);
 }
 
 class ChangeCurrentExamAction {
-  final int examId;
-
   ChangeCurrentExamAction(this.examId);
+  final int examId;
 }
 
 class ChangeBottomNavIndexAction {
-  final int newBottomNavIndex;
-
   ChangeBottomNavIndexAction(this.newBottomNavIndex);
+  final int newBottomNavIndex;
 }
 
 /* REMOVE AFTER */

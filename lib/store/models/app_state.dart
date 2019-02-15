@@ -3,27 +3,25 @@ import 'package:computeiro/store/models/index.dart';
 
 @immutable
 class AppState {
-  final bool isLoading;
-  final int bottomNavIndex;
-  final Poscomp poscomp;
-  final Profile profile;
-  final String dumbSearch;
-
-  AppState({
+  const AppState({
     this.isLoading = false,
     this.poscomp,
     this.bottomNavIndex,
     this.profile,
     this.dumbSearch,
   });
-
-  factory AppState.initial() => new AppState(
+  factory AppState.initial() => AppState(
         isLoading: true,
         bottomNavIndex: 1,
         poscomp: Poscomp.init(),
         profile: Profile.init(),
         dumbSearch: '',
       );
+  final bool isLoading;
+  final int bottomNavIndex;
+  final Poscomp poscomp;
+  final Profile profile;
+  final String dumbSearch;
 
   AppState copyWith({
     bool isLoading,
@@ -31,7 +29,7 @@ class AppState {
     int bottomNavIndex,
     Profile profile,
   }) {
-    return new AppState(
+    return AppState(
       isLoading: isLoading ?? this.isLoading,
       poscomp: poscomp ?? this.poscomp,
       bottomNavIndex: bottomNavIndex ?? this.bottomNavIndex,

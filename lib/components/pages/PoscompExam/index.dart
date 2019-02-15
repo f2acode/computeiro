@@ -10,93 +10,93 @@ class PoscompExam extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, ViewModel>(
       converter: ViewModel.fromStore,
-      builder: (context, vm) {
+      builder: (BuildContext context, ViewModel vm) {
         return Scaffold(
           appBar: AppBar(
             title: Text('Prova do ano de ${vm.examYear}'),
           ),
           body: Padding(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 MarkdownBody(data: vm.questionText),
                 Row(
                   children: <Widget>[
-                    Radio(
+                    Radio<String>(
                       value: 'A',
                       groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),
-                    Text('Carnivore')
+                    const Text('Carnivore')
                   ],
                 ),
                 Row(
                   children: <Widget>[
-                    Radio(
+                    Radio<String>(
                       value: 'B',
                       groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),
-                    Text('Carnivore')
+                    const Text('Carnivore')
                   ],
                 ),
                 Row(
                   children: <Widget>[
-                    Radio(
+                    Radio<String>(
                       value: 'C',
                       groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),
-                    Text('Carnivore')
+                    const Text('Carnivore')
                   ],
                 ),
                 Row(
                   children: <Widget>[
-                    Radio(
+                    Radio<String>(
                       value: 'D',
                       groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),
-                    Text('Carnivore')
+                    const Text('Carnivore')
                   ],
                 ),
                 Row(
                   children: <Widget>[
-                    Radio(
+                    Radio<String>(
                       value: 'E',
                       groupValue: vm.currentAnswer,
                       onChanged: (String alternative) =>
                           vm.onSelectAlternativeAction(alternative),
                     ),
-                    Text('Carnivore')
+                    const Text('Carnivore')
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
-                      padding: EdgeInsets.only(right: 5, left: 5),
+                      padding: const EdgeInsets.only(right: 5, left: 5),
                       child: RaisedButton(
-                        child: Text('VOLTAR'),
+                        child: const Text('VOLTAR'),
                         onPressed: vm.onPreviousQuestion,
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(right: 5, left: 5),
+                      padding: const EdgeInsets.only(right: 5, left: 5),
                       child: RaisedButton(
-                        child: Text('TERMINAR'),
+                        child: const Text('TERMINAR'),
                         onPressed: () => print('TERMINAR'),
                       ),
                     ),
                     Container(
-                      padding: EdgeInsets.only(right: 5, left: 5),
+                      padding: const EdgeInsets.only(right: 5, left: 5),
                       child: RaisedButton(
-                        child: Text('PRÓXIMA'),
+                        child: const Text('PRÓXIMA'),
                         onPressed: vm.onNextQuestion,
                       ),
                     ),

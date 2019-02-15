@@ -5,12 +5,12 @@ import 'package:computeiro/store/models/Poscomp/exam.dart';
 
 @immutable
 class Poscomp {
-  final List<Exam> exams;
+  const Poscomp({this.exams});
 
-  Poscomp({this.exams});
-
-  factory Poscomp.init() => new Poscomp(exams: [
+  factory Poscomp.init() => Poscomp(exams: <Exam>[
         Exam(questions: Questions.questions2018, year: 2018),
-        Exam(questions: [Question()], year: 2017),
+        Exam(questions: <Question>[Question()], year: 2017),
       ]);
+
+  final List<Exam> exams;
 }

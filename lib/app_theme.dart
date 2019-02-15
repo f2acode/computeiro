@@ -14,11 +14,11 @@ class AppTheme {
       //backgroundColor: Colors.red,
       //bottomAppBarColor: Colors.red,
       fontFamily: 'Roboto',
-      buttonTheme: ButtonThemeData(
+      buttonTheme: const ButtonThemeData(
         buttonColor: ComputeiroColors.darkGray,
         textTheme: ButtonTextTheme.accent,
       ),
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
         title: TextStyle(
           fontSize: 24.0,
         ),
