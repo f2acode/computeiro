@@ -1,7 +1,8 @@
 import 'package:redux/redux.dart';
 import 'package:computeiro/store/actions/index.dart';
+import 'package:computeiro/helpers/complex_types.dart';
 
-final bottomNavReducer = combineReducers<int>([
+final Function bottomNavReducer = combineReducers<int>(<IntReducer>[
   TypedReducer<int, ChangeBottomNavIndexAction>(_changeBottomNavIndex),
 ]);
 

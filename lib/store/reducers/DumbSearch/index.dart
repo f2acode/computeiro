@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:computeiro/store/actions/index.dart';
+import 'package:computeiro/helpers/complex_types.dart';
 
-final dumbSearch = combineReducers<String>([
+final Function dumbSearch = combineReducers<String>(<StringReducer>[
   TypedReducer<String, SearchResultsAction>(_handleSearchResult),
   TypedReducer<String, SearchErrorAction>(_handleSearchError),
 ]);

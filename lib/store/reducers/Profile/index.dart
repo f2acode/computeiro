@@ -1,9 +1,11 @@
 import 'package:redux/redux.dart';
+
 import 'package:computeiro/store/actions/index.dart';
 import 'package:computeiro/store/models/Profile/index.dart';
 import 'package:computeiro/store/models/Profile/poscomp_status.dart';
+import 'package:computeiro/helpers/complex_types.dart';
 
-final profileReducer = combineReducers<Profile>([
+final Function profileReducer = combineReducers<Profile>(<ProfileReducer>[
   TypedReducer<Profile, ChangeCurrentExamAction>(_onChangeCurrentExam),
   TypedReducer<Profile, SelectAlternativeAction>(_onChangeAlternative),
   TypedReducer<Profile, NextQuestionAction>(_onNextQuestionAction),
