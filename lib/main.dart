@@ -20,9 +20,9 @@ class App extends StatelessWidget {
   final Store<AppState> store = Store<AppState>(
     appReducer,
     initialState: AppState.initial(),
-    middleware: List.castFrom(
-      <EpicMiddleware<dynamic>>[EpicMiddleware<dynamic>(epics)],
-    ),
+    middleware: [
+      EpicMiddleware(epics) //ignore: strong_mode_implicit_dynamic_type
+    ],
   );
 
   @override
