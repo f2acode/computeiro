@@ -12,5 +12,5 @@ Stream<dynamic> searchEpic(
       .then<dynamic>(
         (Map<String, dynamic> results) => SearchResultsAction(results['title']),
       )
-      .catchError((Exception error) => SearchErrorAction(error.toString())));
+      .catchError((dynamic error) => SearchErrorAction(error.toString())));
 }

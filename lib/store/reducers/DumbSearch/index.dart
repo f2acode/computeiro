@@ -11,6 +11,7 @@ final Function dumbSearch = combineReducers<String>(<StringReducer>[
 ]);
 
 String _handleSearchResult(String state, SearchResultsAction action) {
+  print(action.results);
   return action.results;
 }
 
@@ -24,5 +25,6 @@ String _handleSearchError(String state, SearchErrorAction action) {
   //   textColor: Colors.white,
   //   fontSize: 16.0,
   // );
+  print(action.errorMessage);
   return state;
 }

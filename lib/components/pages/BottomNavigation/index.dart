@@ -9,7 +9,6 @@ import 'package:computeiro/components/pages/BottomNavigation/view_model.dart';
 class BottomNavigator extends StatelessWidget {
   Widget _handleWidgetOption(int index, ViewModel vm) {
     final List<Widget> possibleWidgets = <Widget>[
-      poscompExams(),
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -20,7 +19,8 @@ class BottomNavigator extends StatelessWidget {
           ),
           Text(vm.dumbSearch)
         ],
-      )
+      ),
+      poscompExams(),
     ];
 
     return possibleWidgets[index];
