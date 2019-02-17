@@ -3,7 +3,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: ">=2.1.0-dev.9.4 <3.0.0"
 
 dependencies:
   flutter:
@@ -13,6 +13,7 @@ dependencies:
   flutter_redux: ^0.5.3
   redux_epics: ^0.10.3
   http: ^0.12.0+1
+  functional_widget: ^0.4.0
   # fluttertoast: ^3.0.0
 
 dev_dependencies:

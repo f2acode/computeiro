@@ -8,23 +8,22 @@ import 'package:computeiro/components/pages/BottomNavigation/view_model.dart';
 
 class BottomNavigator extends StatelessWidget {
   Widget _handleWidgetOption(int index, ViewModel vm) {
-    switch (index) {
-      case 1:
-        return PoscompExams();
-      default:
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(Texts.welcome),
-            RaisedButton(
-              child: const Text('Dumb request!!'),
-              onPressed: () => vm.onDispatchTest('aa'),
-            ),
-            Text(vm.dumbSearch)
-          ],
-        );
-        break;
-    }
+    final List<Widget> possibleWidgets = <Widget>[
+      poscompExams(),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(Texts.welcome),
+          RaisedButton(
+            child: const Text('Dumb request!!'),
+            onPressed: () => vm.onDispatchTest('aa'),
+          ),
+          Text(vm.dumbSearch)
+        ],
+      )
+    ];
+
+    return possibleWidgets[index];
   }
 
   @override
