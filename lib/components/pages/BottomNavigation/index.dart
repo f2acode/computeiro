@@ -5,21 +5,12 @@ import 'package:computeiro/store/models/app_state.dart';
 import 'package:computeiro/components/organisms/index.dart';
 import 'package:computeiro/components/pages/BottomNavigation/texts.dart';
 import 'package:computeiro/components/pages/BottomNavigation/view_model.dart';
+import 'package:computeiro/components/pages/Home/index.dart';
 
 class BottomNavigator extends StatelessWidget {
   Widget _handleWidgetOption(int index, ViewModel vm) {
     final List<Widget> possibleWidgets = <Widget>[
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const Text(Texts.welcome),
-          RaisedButton(
-            child: const Text('Dumb request!!'),
-            onPressed: () => vm.onDispatchTest('aa'),
-          ),
-          Text(vm.dumbSearch)
-        ],
-      ),
+      Home(),
       poscompExams(),
     ];
 
