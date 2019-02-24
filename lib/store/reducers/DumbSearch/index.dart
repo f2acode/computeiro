@@ -3,7 +3,7 @@ import 'package:redux/redux.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:computeiro/store/actions/index.dart';
-import 'package:computeiro/helpers/complex_types.dart';
+import 'package:computeiro/core/helpers/complex_types.dart';
 
 final Function dumbSearch = combineReducers<String>(<StringReducer>[
   TypedReducer<String, SearchResultsAction>(_handleSearchResult),

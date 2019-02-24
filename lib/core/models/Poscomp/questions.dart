@@ -1,4 +1,4 @@
-import 'package:computeiro/store/models/Poscomp/question.dart';
+import 'package:computeiro/core/models/Poscomp/question.dart';
 
 final List<Question> questions2018 = <Question>[
   Question(

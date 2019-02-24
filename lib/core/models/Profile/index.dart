@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:computeiro/store/models/Profile/poscomp_status.dart';
+import 'package:computeiro/core/models/Profile/poscomp_status.dart';
 
 @immutable
 class Profile {

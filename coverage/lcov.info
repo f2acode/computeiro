@@ -45,7 +45,7 @@ DA:23,0
 LF:7
 LH:5
 end_of_record
-SF:lib/store/models/Poscomp/index.dart
+SF:lib/core/models/Poscomp/index.dart
 DA:8,1
 DA:10,3
 DA:11,2
@@ -215,7 +215,7 @@ DA:40,0
 LF:15
 LH:0
 end_of_record
-SF:lib/store/models/Profile/index.dart
+SF:lib/core/models/Profile/index.dart
 DA:6,1
 DA:8,1
 LF:2
@@ -262,17 +262,17 @@ DA:15,0
 LF:5
 LH:0
 end_of_record
-SF:lib/store/models/Poscomp/exam.dart
+SF:lib/core/models/Poscomp/exam.dart
 DA:7,1
 LF:1
 LH:1
 end_of_record
-SF:lib/store/models/Poscomp/question.dart
+SF:lib/core/models/Poscomp/question.dart
 DA:2,1
 LF:1
 LH:1
 end_of_record
-SF:lib/store/models/Poscomp/questions.dart
+SF:lib/core/models/Poscomp/questions.dart
 DA:3,3
 DA:4,1
 DA:8,1
@@ -280,7 +280,7 @@ DA:14,7
 LF:4
 LH:4
 end_of_record
-SF:lib/store/models/Profile/poscomp_status.dart
+SF:lib/core/models/Profile/poscomp_status.dart
 DA:5,1
 LF:1
 LH:1

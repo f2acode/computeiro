@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
-import 'package:computeiro/store/models/Poscomp/question.dart';
-import 'package:computeiro/store/models/Poscomp/questions.dart';
-import 'package:computeiro/store/models/Poscomp/exam.dart';
+import 'package:computeiro/core/models/Poscomp/question.dart';
+import 'package:computeiro/core/models/Poscomp/questions.dart';
+import 'package:computeiro/core/models/Poscomp/exam.dart';
 
 @immutable
 class Poscomp {

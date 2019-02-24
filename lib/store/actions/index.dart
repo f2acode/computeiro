@@ -1,4 +1,4 @@
-import 'package:computeiro/store/models/Poscomp/index.dart';
+import 'package:computeiro/core/models/Poscomp/index.dart';
 
 class LoadPoscompAction {}
 

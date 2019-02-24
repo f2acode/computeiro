@@ -1,6 +1,6 @@
 import 'package:redux/redux.dart';
 import 'package:computeiro/store/actions/index.dart';
-import 'package:computeiro/helpers/complex_types.dart';
+import 'package:computeiro/core/helpers/complex_types.dart';
 
 final Function loadingReducer = combineReducers<bool>(<BoolReducer>[
   TypedReducer<bool, PoscompNotLoadedAction>(_setLoaded),

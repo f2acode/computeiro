@@ -3,7 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:computeiro/components/pages/BottomNavigation/texts.dart';
 import 'package:computeiro/components/pages/Home/view_model.dart';
-import 'package:computeiro/store/models/index.dart';
+import 'package:computeiro/store/models/app_state.dart';
 
 class Home extends StatefulWidget {
   @override

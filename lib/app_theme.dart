@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:computeiro/helpers/computeiro_colors.dart';
+import 'package:computeiro/core/helpers/computeiro_colors.dart';
 
 class AppTheme {
   ThemeData get() {

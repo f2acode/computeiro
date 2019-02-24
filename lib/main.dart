@@ -4,7 +4,7 @@ import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
 
 import 'package:computeiro/app_theme.dart';
-import 'package:computeiro/store/models/index.dart';
+import 'package:computeiro/store/models/app_state.dart';
 import 'package:computeiro/store/reducers/app_reducer.dart';
 import 'package:computeiro/components/pages/index.dart';
 import 'package:computeiro/store/middlewares/index.dart';

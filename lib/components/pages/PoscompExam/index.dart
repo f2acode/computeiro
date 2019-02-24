@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-import 'package:computeiro/store/models/index.dart';
+import 'package:computeiro/store/models/app_state.dart';
 import 'package:computeiro/components/pages/PoscompExam/view_model.dart';
 
 class PoscompExam extends StatelessWidget {

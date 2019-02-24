@@ -1,5 +1,5 @@
 import 'package:meta/meta.dart';
-import 'package:computeiro/store/models/index.dart';
+import 'package:computeiro/core/models/index.dart';
 
 @immutable
 class AppState {

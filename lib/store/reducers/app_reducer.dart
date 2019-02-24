@@ -1,4 +1,4 @@
-import 'package:computeiro/store/models/index.dart';
+import 'package:computeiro/store/models/app_state.dart';
 import 'package:computeiro/store/reducers/index.dart';
 
 AppState appReducer(AppState state, dynamic action) {

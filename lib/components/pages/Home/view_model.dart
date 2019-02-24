@@ -1,7 +1,7 @@
 import 'package:redux/redux.dart';
 
-import 'package:computeiro/store/models/index.dart';
-import 'package:computeiro/store/models/Poscomp/index.dart';
+import 'package:computeiro/store/models/app_state.dart';
+import 'package:computeiro/core/models/Poscomp/index.dart';
 import 'package:computeiro/store/actions/index.dart';
 
 class ViewModel {

@@ -1,8 +1,8 @@
 import 'package:redux_epics/redux_epics.dart';
 
 import 'package:computeiro/store/models/app_state.dart';
-import 'package:computeiro/store/models/Poscomp/index.dart';
-import 'package:computeiro/store/models/Profile/index.dart';
+import 'package:computeiro/core/models/Poscomp/index.dart';
+import 'package:computeiro/core/models/Profile/index.dart';
 
 typedef EpicType = Stream<dynamic> Function(
   Stream<dynamic> stream,

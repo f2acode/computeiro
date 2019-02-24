@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:functional_widget_annotation/functional_widget_annotation.dart';
 
-import 'package:computeiro/store/models/index.dart';
+import 'package:computeiro/store/models/app_state.dart';
 import 'package:computeiro/components/pages/index.dart';
 import 'package:computeiro/components/organisms/PoscompExams/view_model.dart';
 
