@@ -1,43 +1,50 @@
-import 'package:flutter/foundation.dart';
-import 'package:redux/redux.dart';
+import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-import 'package:computeiro/store/models/app_state.dart';
+import 'package:computeiro/scoped_model/app_state.dart';
 import 'package:computeiro/core/models/Poscomp/index.dart';
-import 'package:computeiro/store/actions/index.dart';
+import 'package:computeiro/core/models/index.dart';
 
 class ViewModel {
-  ViewModel({
-    @required this.poscomp,
-    @required this.onSelectAlternativeAction,
-    @required this.currentAnswer,
-    @required this.questionText,
-    @required this.examYear,
-    @required this.onNextQuestion,
-    @required this.onPreviousQuestion,
-  });
-  final Poscomp poscomp;
-  final Function(String) onSelectAlternativeAction;
-  final Function onNextQuestion, onPreviousQuestion;
-  final String currentAnswer, questionText;
-  final int examYear;
+  ViewModel(BuildContext context) {
+    final AppState appState =
+        ScopedModel.of<AppState>(context, rebuildOnChange: true);
 
-  static ViewModel fromStore(Store<AppState> store) {
-    final Poscomp poscomp = store.state.poscomp;
-    final int exam = store.state.profile.poscompStatus.exam;
-    final int questionIndex = store.state.profile.poscompStatus.questionIndex;
-    final List<String> answers = store.state.profile.poscompStatus.answers;
+    print(appState.profile.poscompStatus.answers);
+    print(appState.profile.poscompStatus.exam);
+    print(appState.profile.poscompStatus.questionIndex);
 
-    print(answers);
+    final int exam = appState.profile.poscompStatus.exam;
+    final int questionIndex = appState.profile.poscompStatus.questionIndex;
+    final List<String> answers = appState.profile.poscompStatus.answers;
 
-    return ViewModel(
-      poscomp: poscomp,
-      examYear: poscomp.exams[exam].year,
-      currentAnswer: answers.isNotEmpty ? answers[questionIndex] : '',
-      questionText: poscomp.exams[exam].questions[questionIndex].text,
-      onSelectAlternativeAction: (String alternative) =>
-          store.dispatch(SelectAlternativeAction(alternative, questionIndex)),
-      onNextQuestion: () => store.dispatch(NextQuestionAction()),
-      onPreviousQuestion: () => store.dispatch(PreviousQuestionAction()),
-    );
+    final Poscomp pos = appState.poscomp;
+    poscomp = pos;
+    examYear = pos.exams[exam].year;
+    currentAnswer = answers.isNotEmpty ? answers[questionIndex] : '';
+    questionText = pos.exams[exam].questions[questionIndex].text;
+
+    onSelectAlternativeAction = (String alternative) {
+      appState.profile.poscompStatus.insertAnswer(
+        alternative: alternative,
+        questionIndex: questionIndex,
+      );
+
+      appState.notifyListeners();
+    };
+    onNextQuestion = () {
+      appState.profile.poscompStatus.nextQuestion();
+      appState.notifyListeners();
+    };
+    onPreviousQuestion = () {
+      appState.profile.poscompStatus.previousQuestion();
+      appState.notifyListeners();
+    };
   }
+
+  Poscomp poscomp;
+  Function(String) onSelectAlternativeAction;
+  Function onNextQuestion, onPreviousQuestion;
+  String currentAnswer, questionText;
+  int examYear;
 }

@@ -1,9 +1,7 @@
-import 'package:meta/meta.dart';
 import 'package:computeiro/core/models/Poscomp/question.dart';
 import 'package:computeiro/core/models/Poscomp/questions.dart';
 import 'package:computeiro/core/models/Poscomp/exam.dart';
 
-@immutable
 class Poscomp {
   const Poscomp({this.exams});
 

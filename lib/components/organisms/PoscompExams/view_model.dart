@@ -1,27 +1,20 @@
-import 'package:flutter/foundation.dart';
-import 'package:redux/redux.dart';
+import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-import 'package:computeiro/store/models/app_state.dart';
-import 'package:computeiro/core/models/Poscomp/index.dart';
-import 'package:computeiro/store/actions/index.dart';
+import 'package:computeiro/scoped_model/app_state.dart';
+import 'package:computeiro/core/models/index.dart';
 
 class ViewModel {
-  ViewModel(
-      {@required this.poscomp,
-      @required this.loading,
-      @required this.onChangeCurrentExam});
-
-  final Poscomp poscomp;
-  final bool loading;
-  final Function(int) onChangeCurrentExam;
-
-  static ViewModel fromStore(Store<AppState> store) {
-    return ViewModel(
-      poscomp: store.state.poscomp,
-      loading: store.state.isLoading,
-      onChangeCurrentExam: (int newValue) {
-        store.dispatch(ChangeCurrentExamAction(newValue));
-      },
-    );
+  ViewModel(BuildContext context) {
+    final AppState appState = ScopedModel.of<AppState>(context);
+    poscomp = appState.poscomp;
+    loading = appState.isLoading;
+    onChangeCurrentExam = (int newValue) {
+      appState.profile.poscompStatus.setExam(newValue);
+    };
   }
+
+  Poscomp poscomp;
+  bool loading;
+  Function(int) onChangeCurrentExam;
 }

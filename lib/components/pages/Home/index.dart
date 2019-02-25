@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 import 'package:computeiro/components/pages/BottomNavigation/texts.dart';
 import 'package:computeiro/components/pages/Home/view_model.dart';
-import 'package:computeiro/store/models/app_state.dart';
+import 'package:computeiro/scoped_model/app_state.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -66,9 +66,9 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, ViewModel>(
-      converter: ViewModel.fromStore,
-      builder: (BuildContext context, ViewModel vm) {
+    return ScopedModelDescendant<AppState>(
+      builder: (BuildContext ctx, Widget c, AppState s) {
+        final ViewModel vm = ViewModel(ctx);
         return GestureDetector(
           onVerticalDragUpdate: (DragUpdateDetails u) => swipe(u),
           onVerticalDragDown: (DragDownDetails d) => swipeDown(d),
@@ -82,9 +82,9 @@ class _HomeState extends State<Home> {
                   const Text(Texts.welcome),
                   RaisedButton(
                     child: const Text('Dumb request!!'),
-                    onPressed: () => vm.onDispatchTest('aa'),
+                    onPressed: () => vm.onDispatchTest(),
                   ),
-                  Text(vm.dumbSearch),
+                  Text(vm.resultDumbSearch),
                 ],
               ),
             ),

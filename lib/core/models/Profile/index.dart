@@ -1,11 +1,10 @@
-import 'package:meta/meta.dart';
+import 'package:scoped_model/scoped_model.dart';
 import 'package:computeiro/core/models/Profile/poscomp_status.dart';
 
-@immutable
-class Profile {
-  const Profile({this.poscompStatus});
+class Profile extends Model {
+  Profile({this.poscompStatus});
 
-  factory Profile.init() => const Profile(poscompStatus: PoscompStatus());
+  factory Profile.init() => Profile(poscompStatus: PoscompStatus());
 
-  final PoscompStatus poscompStatus;
+  PoscompStatus poscompStatus;
 }

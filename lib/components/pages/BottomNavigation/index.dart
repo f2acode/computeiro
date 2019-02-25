@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-import 'package:computeiro/store/models/app_state.dart';
+import 'package:computeiro/scoped_model/app_state.dart';
 import 'package:computeiro/components/organisms/index.dart';
 import 'package:computeiro/components/pages/BottomNavigation/texts.dart';
 import 'package:computeiro/components/pages/BottomNavigation/view_model.dart';
 import 'package:computeiro/components/pages/Home/index.dart';
 
 class BottomNavigator extends StatelessWidget {
-  Widget _handleWidgetOption(int index, ViewModel vm) {
+  Widget _handleWidgetOption(int index) {
     final List<Widget> possibleWidgets = <Widget>[
       Home(),
       poscompExams(),
@@ -19,9 +19,9 @@ class BottomNavigator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, ViewModel>(
-      converter: ViewModel.fromStore,
-      builder: (BuildContext context, ViewModel vm) {
+    return ScopedModelDescendant<AppState>(
+      builder: (BuildContext context, Widget child, AppState appState) {
+        final ViewModel vm = ViewModel(context);
         return Scaffold(
           appBar: AppBar(
             title: Text(
@@ -30,7 +30,7 @@ class BottomNavigator extends StatelessWidget {
             ),
           ),
           body: Center(
-            child: _handleWidgetOption(vm.bottomNavIndex, vm),
+            child: _handleWidgetOption(vm.bottomNavIndex),
           ),
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[

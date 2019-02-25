@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux/flutter_redux.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-import 'package:computeiro/store/models/app_state.dart';
+import 'package:computeiro/scoped_model/app_state.dart';
 import 'package:computeiro/components/pages/PoscompExam/view_model.dart';
 
 class PoscompExam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StoreConnector<AppState, ViewModel>(
-      converter: ViewModel.fromStore,
-      builder: (BuildContext context, ViewModel vm) {
+    return ScopedModelDescendant<AppState>(
+      builder: (BuildContext ctx, Widget child, AppState appState) {
+        final ViewModel vm = ViewModel(ctx);
         return Scaffold(
           appBar: AppBar(
             title: Text('Prova do ano de ${vm.examYear}'),
