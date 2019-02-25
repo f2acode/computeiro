@@ -10,8 +10,7 @@ void main() => runApp(App());
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text('testgin');
-    /* return ScopedModel<AppState>(
+    return ScopedModel<AppState>(
       model: AppState.initial(),
       child: MaterialApp(
         title: 'Computeiro',
@@ -19,6 +18,5 @@ class App extends StatelessWidget {
         home: BottomNavigator(),
       ),
     );
-    */
   }
 }
