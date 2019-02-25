@@ -10,13 +10,13 @@ class ViewModel {
     final AppState appState =
         ScopedModel.of<AppState>(context, rebuildOnChange: true);
 
-    print(appState.profile.poscompStatus.answers);
-    print(appState.profile.poscompStatus.exam);
-    print(appState.profile.poscompStatus.questionIndex);
-
     final int exam = appState.profile.poscompStatus.exam;
     final int questionIndex = appState.profile.poscompStatus.questionIndex;
     final List<String> answers = appState.profile.poscompStatus.answers;
+
+    print(answers);
+    print(exam);
+    print(questionIndex);
 
     final Poscomp pos = appState.poscomp;
     poscomp = pos;

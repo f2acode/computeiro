@@ -11,19 +11,16 @@ class PoscompStatus {
 
   void insertAnswer({String alternative, int questionIndex}) {
     if (answers.isEmpty)
-      answers = List.castFrom<dynamic, String>(List<String>.from(answers))
-        ..insert(questionIndex, alternative);
+      answers = List<String>.from(answers)..add(alternative);
     else
-      answers = List.castFrom<dynamic, String>(List<String>.from(answers))
+      answers = List<String>.from(answers)
         ..removeAt(questionIndex)
         ..insert(questionIndex, alternative);
   }
 
   void nextQuestion() {
-    if (questionIndex >= answers.length) {
-      answers = List.castFrom<dynamic, String>(List<dynamic>.from(answers))
-        ..add('');
-    }
+    answers = List<String>.from(answers)..add('');
+
     questionIndex = questionIndex + 1;
   }
 
