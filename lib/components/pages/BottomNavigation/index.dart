@@ -3,15 +3,17 @@ import 'package:scoped_model/scoped_model.dart';
 
 import 'package:computeiro/scoped_model/app_state.dart';
 import 'package:computeiro/components/organisms/index.dart';
-import 'package:computeiro/components/pages/BottomNavigation/texts.dart';
+import 'package:computeiro/core/constants/strings.dart';
 import 'package:computeiro/components/pages/BottomNavigation/view_model.dart';
 import 'package:computeiro/components/pages/Home/index.dart';
+import 'package:computeiro/components/pages/About/index.dart';
 
 class BottomNavigator extends StatelessWidget {
   Widget _handleWidgetOption(int index) {
     final List<Widget> possibleWidgets = <Widget>[
       Home(),
-      poscompExams(),
+      PoscompExams(),
+      About(),
     ];
 
     return possibleWidgets[index];
@@ -25,7 +27,7 @@ class BottomNavigator extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              Texts.appTitle,
+              appTitle,
               style: TextStyle(color: Theme.of(context).accentColor),
             ),
           ),
@@ -36,11 +38,15 @@ class BottomNavigator extends StatelessWidget {
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
-                title: Text('Home'),
+                title: Text(home),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.school),
-                title: Text('Poscomp'),
+                title: Text(poscomp),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.developer_mode),
+                title: Text(about),
               ),
             ],
             currentIndex: vm.bottomNavIndex,

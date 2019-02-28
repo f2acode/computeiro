@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-import 'package:computeiro/app_theme.dart';
+import 'package:computeiro/core/style/app_theme.dart';
 import 'package:computeiro/scoped_model/app_state.dart';
 import 'package:computeiro/components/pages/index.dart';
+import 'package:computeiro/core/constants/strings.dart';
 
 void main() => runApp(App());
 
@@ -13,7 +14,7 @@ class App extends StatelessWidget {
     return ScopedModel<AppState>(
       model: AppState.initial(),
       child: MaterialApp(
-        title: 'Computeiro',
+        title: appTitle,
         theme: AppTheme().get(),
         home: BottomNavigator(),
       ),
