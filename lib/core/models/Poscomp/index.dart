@@ -1,14 +1,8 @@
-import 'package:computeiro/core/models/Poscomp/question.dart';
-import 'package:computeiro/core/models/Poscomp/questions.dart';
-import 'package:computeiro/core/models/Poscomp/exam.dart';
+import 'package:meta/meta.dart';
+
+import 'package:computeiro/core/models/index.dart';
 
 class Poscomp {
-  const Poscomp({this.exams});
-
-  factory Poscomp.init() => Poscomp(exams: <Exam>[
-        Exam(questions: questions2018, year: 2018),
-        Exam(questions: <Question>[Question()], year: 2017),
-      ]);
-
+  const Poscomp({@required this.exams});
   final List<Exam> exams;
 }
