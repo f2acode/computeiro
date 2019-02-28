@@ -1,6 +1,7 @@
 class Question {
-  Question({this.text, this.answer});
+  Question({this.text, this.correctAnswer, this.alternatives});
 
   final String text;
-  final String answer;
+  final String correctAnswer;
+  final List<String> alternatives;
 }

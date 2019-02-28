@@ -10,19 +10,17 @@ class ViewModel {
     final AppState appState =
         ScopedModel.of<AppState>(context, rebuildOnChange: true);
 
-    final int exam = appState.profile.poscompStatus.exam;
+    final Poscomp pos = appState.poscomp;
+    final int examIndex = appState.profile.poscompStatus.exam;
+    final Exam currentExam = pos.exams[examIndex];
     final int questionIndex = appState.profile.poscompStatus.questionIndex;
     final List<String> answers = appState.profile.poscompStatus.answers;
 
-    print(answers);
-    print(exam);
-    print(questionIndex);
-
-    final Poscomp pos = appState.poscomp;
     poscomp = pos;
-    examYear = pos.exams[exam].year;
+    examYear = currentExam.year;
     currentAnswer = answers.isNotEmpty ? answers[questionIndex] : '';
-    questionText = pos.exams[exam].questions[questionIndex].text;
+    questionText = currentExam.questions[questionIndex].text;
+    questionAlternatives = currentExam.questions[questionIndex].alternatives;
 
     onSelectAlternativeAction = (String alternative) {
       appState.profile.poscompStatus.insertAnswer(
@@ -46,5 +44,6 @@ class ViewModel {
   Function(String) onSelectAlternativeAction;
   Function onNextQuestion, onPreviousQuestion;
   String currentAnswer, questionText;
+  List<String> questionAlternatives;
   int examYear;
 }

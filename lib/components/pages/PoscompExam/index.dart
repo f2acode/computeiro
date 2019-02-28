@@ -7,16 +7,16 @@ import 'package:computeiro/components/pages/PoscompExam/view_model.dart';
 import 'package:computeiro/core/constants/strings.dart';
 
 class PoscompExam extends StatelessWidget {
-  Widget buildAlternative(ViewModel vm, String alt) {
+  Widget buildAlternative(ViewModel vm, String altValue, String altText) {
     return Row(
       children: <Widget>[
         Radio<String>(
-          value: alt,
+          value: altValue,
           groupValue: vm.currentAnswer,
           onChanged: (String alternative) =>
               vm.onSelectAlternativeAction(alternative),
         ),
-        const Text('Carnivore')
+        Text(altText),
       ],
     );
   }
@@ -27,8 +27,12 @@ class PoscompExam extends StatelessWidget {
 
     content.add(MarkdownBody(data: vm.questionText));
 
-    for (String alt in alternatives) {
-      content.add(buildAlternative(vm, alt));
+    for (int i = 0; i < alternatives.length; i++) {
+      content.add(buildAlternative(
+        vm,
+        alternatives[i],
+        vm.questionAlternatives[i],
+      ));
     }
 
     content.add(Row(
