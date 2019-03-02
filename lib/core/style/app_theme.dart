@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-import 'package:computeiro/core/style/computeiro_colors.dart';
+import 'package:computeiro/core/style/index.dart';
 
 class AppTheme {
   ThemeData get() {
     return ThemeData(
-      primaryColor: ComputeiroColors.darkGray,
-      accentColor: ComputeiroColors.yellow,
-      errorColor: ComputeiroColors.pink,
-      scaffoldBackgroundColor: ComputeiroColors.lightGray,
-      canvasColor: ComputeiroColors.darkGray,
+      primaryColor: darkGray,
+      accentColor: yellow,
+      errorColor: pink,
+      scaffoldBackgroundColor: lightGray,
+      canvasColor: darkGray,
       //brightness: Brightness.light,
       //backgroundColor: Colors.red,
       //bottomAppBarColor: Colors.red,
       fontFamily: 'Roboto',
       buttonTheme: const ButtonThemeData(
-        buttonColor: ComputeiroColors.darkGray,
+        buttonColor: darkGray,
         textTheme: ButtonTextTheme.accent,
       ),
       textTheme: const TextTheme(

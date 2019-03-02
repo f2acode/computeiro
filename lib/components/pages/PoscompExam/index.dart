@@ -3,8 +3,10 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'package:computeiro/scoped_model/app_state.dart';
+
+import 'package:computeiro/core/constants/index.dart';
+
 import 'package:computeiro/components/pages/PoscompExam/view_model.dart';
-import 'package:computeiro/core/constants/strings.dart';
 
 class PoscompExam extends StatelessWidget {
   Widget buildAlternative(ViewModel vm, String altValue, String altText) {

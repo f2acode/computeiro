@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class SwipedModal extends StatelessWidget {
-  const SwipedModal({this.height});
+  const SwipedModal({this.height, this.title, this.widgets});
+
   final double height;
+  final String title;
+  final List<Widget> widgets;
 
   @override
   Widget build(BuildContext context) {
@@ -10,35 +13,15 @@ class SwipedModal extends StatelessWidget {
       height: height,
       child: ListView(
         physics: const NeverScrollableScrollPhysics(),
-        children: const <Widget>[
+        children: <Widget>[
           Center(
             child: Text(
-              'Movimentações',
+              title,
               textAlign: TextAlign.left,
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
           ),
-          Text(
-            'Then here there will likely be some other content '
-                'which will be displayed within the bottom bar',
-            textAlign: TextAlign.left,
-          ),
-          Text(
-            'Then here there will likely be some other content '
-                'which will be displayed within the bottom bar',
-            textAlign: TextAlign.left,
-          ),
-          Text(
-            'Then here there will likely be some other content '
-                'which will be displayed within the bottom bar',
-            textAlign: TextAlign.left,
-          ),
-          Text(
-            'Then here there will likely be some other content '
-                'which will be displayed within the bottom bar',
-            textAlign: TextAlign.left,
-          ),
-        ],
+        ]..addAll(widgets),
       ),
     );
   }

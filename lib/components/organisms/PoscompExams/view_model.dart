@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 import 'package:computeiro/scoped_model/app_state.dart';
+
 import 'package:computeiro/core/models/index.dart';
 
 class ViewModel {
