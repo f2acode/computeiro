@@ -7,8 +7,15 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const MarkdownBody(
-        data: aboutMe,
+      child: Row(
+        children: <Widget>[
+          const MarkdownBody(data: aboutMe),
+          //Radius - maybe I can use it
+          //Container(transform: Matrix,)
+          // I can also try to draw my own
+          //CustomPaint() - or just paint
+          Slider(onChanged: (double v) {}, value: 0)
+        ],
       ),
     );
   }
