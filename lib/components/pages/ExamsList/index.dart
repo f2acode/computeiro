@@ -19,10 +19,10 @@ class ExamsList extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: ListView.builder(
-                  itemCount: vm.poscomp.exams.length,
+                  itemCount: vm.exams.length,
                   itemBuilder: (BuildContext context, int index) {
                     return ListTile(
-                      title: Text('POSCOMP ${vm.poscomp.exams[index].year}'),
+                      title: Text('POSCOMP ${vm.exams[index].year}'),
                       subtitle: const Text(insertingExams),
                       leading: const Icon(Icons.computer),
                       onTap: () {

@@ -1,4 +1,4 @@
-import 'package:computeiro/core/models/Poscomp/question.dart';
+import 'package:computeiro/core/models/Exam/question.dart';
 
 class Exam {
   const Exam({this.questions, this.year});

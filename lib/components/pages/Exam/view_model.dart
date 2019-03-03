@@ -12,14 +12,12 @@ class ViewModel {
       rebuildOnChange: true,
     );
 
-    final Poscomp pos = appState.poscomp;
     final Profile profile = appState.profile;
     final int examIndex = profile.poscompStatus.exam;
-    final Exam currentExam = pos.exams[examIndex];
+    final Exam currentExam = appState.exams[examIndex];
     final int questionIndex = profile.poscompStatus.questionIndex;
     final List<String> answers = profile.poscompStatus.answers;
 
-    poscomp = pos;
     examYear = currentExam.year;
     currentAnswer = answers.isNotEmpty ? answers[questionIndex] : '';
     questionText = currentExam.questions[questionIndex].text;
@@ -43,7 +41,6 @@ class ViewModel {
     };
   }
 
-  Poscomp poscomp;
   Function(String) onSelectAlternativeAction;
   Function onNextQuestion, onPreviousQuestion;
   String currentAnswer, questionText;

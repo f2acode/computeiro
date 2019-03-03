@@ -6,7 +6,7 @@ import 'package:computeiro/core/constants/index.dart';
 class AppState extends Model {
   AppState({
     this.isLoading,
-    this.poscomp,
+    this.exams,
     this.bottomNavIndex,
     this.profile,
     this.resultDumbSearch,
@@ -15,12 +15,10 @@ class AppState extends Model {
   factory AppState.initial() => AppState(
         isLoading: true,
         bottomNavIndex: 1,
-        poscomp: Poscomp(
-          exams: <Exam>[
-            Exam(questions: exam2018, year: 2018),
-            Exam(questions: exam2017, year: 2017),
-          ],
-        ),
+        exams: <Exam>[
+          Exam(questions: exam2018, year: 2018),
+          Exam(questions: exam2017, year: 2017),
+        ],
         profile: Profile.init(),
         resultDumbSearch: '',
       );
@@ -37,7 +35,7 @@ class AppState extends Model {
 
   bool isLoading;
   int bottomNavIndex;
-  Poscomp poscomp;
+  List<Exam> exams;
   Profile profile;
   String resultDumbSearch;
 }
