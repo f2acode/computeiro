@@ -15,10 +15,10 @@ class ViewModel {
     final Profile profile = appState.profile;
     final int examIndex = profile.poscompStatus.exam;
     final Exam currentExam = appState.exams[examIndex];
-    final int questionIndex = profile.poscompStatus.questionIndex;
     final List<String> answers = profile.poscompStatus.answers;
 
     examYear = currentExam.year;
+    questionIndex = profile.poscompStatus.questionIndex;
     currentAnswer = answers.isNotEmpty ? answers[questionIndex] : '';
     questionText = currentExam.questions[questionIndex].text;
     questionAlternatives = currentExam.questions[questionIndex].alternatives;
