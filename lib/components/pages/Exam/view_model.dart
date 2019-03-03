@@ -7,14 +7,17 @@ import 'package:computeiro/core/models/index.dart';
 
 class ViewModel {
   ViewModel(BuildContext context) {
-    final AppState appState =
-        ScopedModel.of<AppState>(context, rebuildOnChange: true);
+    final AppState appState = ScopedModel.of<AppState>(
+      context,
+      rebuildOnChange: true,
+    );
 
     final Poscomp pos = appState.poscomp;
-    final int examIndex = appState.profile.poscompStatus.exam;
+    final Profile profile = appState.profile;
+    final int examIndex = profile.poscompStatus.exam;
     final Exam currentExam = pos.exams[examIndex];
-    final int questionIndex = appState.profile.poscompStatus.questionIndex;
-    final List<String> answers = appState.profile.poscompStatus.answers;
+    final int questionIndex = profile.poscompStatus.questionIndex;
+    final List<String> answers = profile.poscompStatus.answers;
 
     poscomp = pos;
     examYear = currentExam.year;
@@ -45,5 +48,5 @@ class ViewModel {
   Function onNextQuestion, onPreviousQuestion;
   String currentAnswer, questionText;
   List<String> questionAlternatives;
-  int examYear;
+  int examYear, questionIndex;
 }

@@ -6,9 +6,9 @@ import 'package:computeiro/scoped_model/app_state.dart';
 import 'package:computeiro/core/constants/index.dart';
 
 import 'package:computeiro/components/pages/index.dart';
-import 'package:computeiro/components/organisms/PoscompExams/view_model.dart';
+import 'package:computeiro/components/pages/ExamsList/view_model.dart';
 
-class PoscompExams extends StatelessWidget {
+class ExamsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<AppState>(
@@ -27,10 +27,10 @@ class PoscompExams extends StatelessWidget {
                       leading: const Icon(Icons.computer),
                       onTap: () {
                         vm.onChangeCurrentExam(index);
-                        Navigator.push<MaterialPageRoute<PoscompExam>>(
+                        Navigator.push<MaterialPageRoute<Exam>>(
                           context,
-                          MaterialPageRoute<MaterialPageRoute<PoscompExam>>(
-                            builder: (BuildContext context) => PoscompExam(),
+                          MaterialPageRoute<MaterialPageRoute<Exam>>(
+                            builder: (BuildContext context) => Exam(),
                           ),
                         );
                       },
