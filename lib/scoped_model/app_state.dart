@@ -14,7 +14,7 @@ class AppState extends Model {
 
   factory AppState.initial() => AppState(
         isLoading: true,
-        bottomNavIndex: 1,
+        bottomNavIndex: 2,
         exams: <Exam>[
           Exam(questions: exam2018, year: 2018),
           Exam(questions: exam2017, year: 2017),
