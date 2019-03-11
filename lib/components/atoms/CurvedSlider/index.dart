@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class CurvedSlider extends CustomPainter {
@@ -7,12 +8,20 @@ class CurvedSlider extends CustomPainter {
     this.dotColor,
     this.completePercent,
     this.width,
+    this.currentValue,
+    this.rangeValue,
   });
 
   Color lineColor;
   Color dotColor;
   double completePercent;
   double width;
+  double currentValue;
+  double rangeValue;
+
+  double def(double x) {
+    return -1 * pow(x, 2);
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -22,27 +31,31 @@ class CurvedSlider extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = width;
 
-    final Offset center = Offset(size.width / 2, size.height / 2);
-    final double radius = min(size.width / 2, size.height / 2);
+    // draw curve
+    final List<Offset> points = <Offset>[];
 
-    const double arcAngle = 2 * pi * .5;
+    for (double i = -10; i <= 10; i += 0.1) {
+      points.add(Offset(size.width / 2 + i * 10, size.height + def(i) / 3));
+    }
 
-    canvas.drawArc(
-      Rect.fromCircle(
-        center: center,
-        radius: radius,
-      ),
-      -pi * 2,
-      arcAngle,
-      false,
+    canvas.drawPoints(
+      PointMode.points,
+      points,
       sliderBack,
     );
 
-    final Offset dotCenter = Offset(size.width / 4, size.height / 2);
+    // draw point
+    final double whereIs = -10 + 20 * (currentValue / rangeValue);
+
+    final Offset dotCenter = Offset(
+      size.width / 2 + whereIs * 10,
+      size.height + def(whereIs) / 3,
+    );
 
     final Paint dot = Paint()
       ..color = dotColor
       ..style = PaintingStyle.fill;
+
     canvas.drawCircle(dotCenter, 20, dot);
   }
 
