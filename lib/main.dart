@@ -8,7 +8,7 @@ import 'package:computeiro/core/constants/index.dart';
 
 import 'package:computeiro/components/pages/index.dart';
 
-void main() => runApp(App());
+Future<void> main() async => runApp(App());
 
 class App extends StatelessWidget {
   @override

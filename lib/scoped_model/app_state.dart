@@ -17,7 +17,7 @@ class AppState extends Model {
         bottomNavIndex: 2,
         exams: <Exam>[
           Exam(questions: exam2018, year: 2018),
-          Exam(questions: exam2017, year: 2017),
+          //Exam(questions: exam2017, year: 2017),
         ],
         profile: Profile.init(),
         resultDumbSearch: '',

@@ -15,46 +15,40 @@ class _AboutState extends State<About> {
   double currentValue = 10.0;
 
   void updateValue(DragUpdateDetails changeValue) {
-    print(changeValue.primaryDelta);
-
-    if (currentValue < rangeValue && changeValue.primaryDelta > 0) {
+    if (currentValue < rangeValue && changeValue.primaryDelta > 0)
       setState(() {
         currentValue = currentValue + 1;
       });
-    } else if (currentValue > 0 && changeValue.primaryDelta.isNegative) {
+    else if (currentValue > 0 && changeValue.primaryDelta.isNegative)
       setState(() {
         currentValue = currentValue - 1;
       });
-    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView(
-        padding: const EdgeInsets.all(20),
-        children: <Widget>[
-          const MarkdownBody(data: aboutMe),
-          GestureDetector(
-            onHorizontalDragUpdate: (DragUpdateDetails u) => updateValue(u),
-            // onVerticalDragDown: (DragDownDetails d) => swipeDown(d),
-            child: Container(
-              width: 200,
-              height: 200,
-              child: CustomPaint(
-                painter: CurvedSlider(
-                  width: 20.0,
-                  completePercent: 20,
-                  lineColor: Colors.grey,
-                  dotColor: Colors.red,
-                  rangeValue: rangeValue,
-                  currentValue: currentValue,
-                ),
+    return ListView(
+      padding: const EdgeInsets.all(20),
+      children: <Widget>[
+        const MarkdownBody(data: aboutMe),
+        GestureDetector(
+          onHorizontalDragUpdate: (DragUpdateDetails u) => updateValue(u),
+          child: Container(
+            width: 200,
+            height: 200,
+            child: CustomPaint(
+              painter: CurvedSlider(
+                width: 20.0,
+                completePercent: 20,
+                lineColor: Colors.grey,
+                dotColor: Colors.red,
+                rangeValue: rangeValue,
+                currentValue: currentValue,
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -7,11 +7,11 @@ final List<Question> exam2018 = <Question>[
           ''',
     correctAnswer: 'C',
     alternatives: <String>[
-      'bla bla',
-      'ahsdhasd',
-      'oioioi',
-      'jurubeba',
-      'asdasd'
+      'Não pode ser diagonalizável.',
+      'Apenas para números inteiros.',
+      'Somente para números positivos.',
+      'Para quaisquer valores.',
+      'Somente para valores nulos.'
     ],
   ),
   Question(
@@ -29,7 +29,7 @@ final List<Question> exam2018 = <Question>[
   ),
 ];
 
-final List<Question> exam2017 = <Question>[
+/* final List<Question> exam2017 = <Question>[
   Question(
     text: '''
           Para quais valores de _a_, _b_, _c_, _d_, _e_, _f_ a matriz _j_= 
@@ -57,4 +57,4 @@ final List<Question> exam2017 = <Question>[
       'asdasd'
     ],
   ),
-];
+]; */
