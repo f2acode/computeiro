@@ -13,6 +13,3 @@ Olá __fofxs__, esse foi um projeto desenvolvido com intuíto de facilitar a int
 
 O app é gratuito e sem anúncios __o/__, mas você pode contribuir para o seu aperfeiçoamento.
 ''';
-
-String Function(String) poscompExamYear =
-    (String examYear) => 'Prova do ano de $examYear';

@@ -17,7 +17,7 @@ class ViewModel {
     final Exam currentExam = appState.exams[examIndex];
     final List<String> answers = profile.poscompStatus.answers;
 
-    examYear = currentExam.year;
+    title = currentExam.title;
     questionIndex = profile.poscompStatus.questionIndex;
     currentAnswer = answers.isNotEmpty ? answers[questionIndex] : '';
     questionText = currentExam.questions[questionIndex].text;
@@ -43,5 +43,6 @@ class ViewModel {
   Function(String) onSelectAlternativeAction;
   Function onNextQuestion, onPreviousQuestion;
   String currentAnswer, questionText;
-  int examYear, questionIndex;
+  String title;
+  int questionIndex;
 }

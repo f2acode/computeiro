@@ -1,8 +1,26 @@
 import 'package:computeiro/core/models/Exam/question.dart';
+import 'package:computeiro/core/models/Exam/asset.dart';
+import 'package:computeiro/core/models/Exam/index.dart';
 
-final List<Question> exam2018 = <Question>[
-  Question(
-    text: Uri.encodeComponent(r'''
+const String downBasePath =
+    'https://github.com/amimaro/Provas-POSCOMP/raw/master';
+
+final Exam exam2018 = Exam(
+  title: 'POSCOMP 2018',
+  year: 2018,
+  assets: <Asset>[
+    Asset(
+      title: 'Prova POSCOMP 2018',
+      link: '$downBasePath/2018/caderno_2018.pdf',
+    ),
+    Asset(
+      title: 'Gabarito POSCOMP 2018',
+      link: '$downBasePath/2018/gabarito_2018.pdf',
+    )
+  ],
+  questions: <Question>[
+    Question(
+      text: Uri.encodeComponent(r'''
     <style>
       p {
         font-size: 16px;
@@ -27,10 +45,10 @@ final List<Question> exam2018 = <Question>[
       <p>D) Para quaisquer valores.</p>
       <p>E) Somente para valores nulos.</p>
     '''),
-    correctAnswer: 'C',
-  ),
-  Question(
-    text: Uri.encodeComponent(r'''
+      correctAnswer: 'C',
+    ),
+    Question(
+      text: Uri.encodeComponent(r'''
     <style>
       p {
         font-size: 16px;
@@ -47,22 +65,151 @@ final List<Question> exam2018 = <Question>[
       <p>D)\(\eta\) = 1, \(\mu\)= 2, \(\lambda\)= 3</p>
       <p>E)\(\eta\) = 3, \(\mu\)= 3, \(\lambda\)= 3</p>
     '''),
-    correctAnswer: 'E',
-  ),
-];
+      correctAnswer: 'E',
+    ),
+  ],
+);
 
-/* final List<Question> exam2017 = <Question>[
-  Question(
-    text: '''
-          Para quais valores de _a_, _b_, _c_, _d_, _e_, _f_ a matriz _j_= 
-          ![Flutter logo](https://upload.wikimedia.org/wikipedia/commons/b/b9/Matrix_%28maths%29%2C_revised.png) é diagonizável?
-          ''',
-    correctAnswer: 'C',
-  ),
-  Question(
-    text: '''
-          Calcule as coordenadas de 1 + 𝑡 + 𝑡^2 na base (1,𝑡 − 1, (𝑡 − 1)^2), considerando 𝑬 = ℝ^𝟐[𝒕], sendo as coordenadas: (𝜆, 𝜇, 𝜂).
-          ''',
-    correctAnswer: 'E',
-  ),
-]; */
+final Exam exam2017 = Exam(
+  title: 'POSCOMP 2017',
+  year: 2017,
+  assets: <Asset>[
+    Asset(
+      title: 'Prova POSCOMP 2017 - Tipo 1',
+      link: '$downBasePath/2017/caderno_2017_tipo1.pdf',
+    ),
+    Asset(
+      title: 'Prova POSCOMP 2017 - Tipo 2',
+      link: '$downBasePath/2017/caderno_2017_tipo2.pdf',
+    ),
+    Asset(
+      title: 'Gabarito POSCOMP 2017 - Tipo 1 e 2',
+      link: '$downBasePath/2017/gabarito_2017_tipo_1_2.pdf',
+    ),
+  ],
+);
+
+final Exam exam2016 = Exam(
+  title: 'POSCOMP 2016',
+  year: 2016,
+  assets: <Asset>[
+    Asset(
+      title: 'Prova POSCOMP 2016',
+      link: '$downBasePath/2016/caderno_2016.pdf',
+    ),
+    Asset(
+      title: 'Gabarito POSCOMP 2016',
+      link: '$downBasePath/2016/gabarito_2016.pdf',
+    )
+  ],
+);
+
+final Exam exam2015 = Exam(
+  title: 'POSCOMP 2015',
+  year: 2015,
+  assets: <Asset>[
+    Asset(
+      title: 'Prova POSCOMP 2015',
+      link: '$downBasePath/2015/caderno_2015.pdf',
+    ),
+    Asset(
+      title: 'Gabarito POSCOMP 2015',
+      link: '$downBasePath/2015/gabarito_2015.pdf',
+    )
+  ],
+);
+
+final Exam exam2014 = Exam(
+  title: 'POSCOMP 2014',
+  year: 2014,
+  assets: <Asset>[
+    Asset(
+      title: 'Prova POSCOMP 2014',
+      link: '$downBasePath/2014/caderno_2014.pdf',
+    ),
+    Asset(
+      title: 'Gabarito POSCOMP 2014',
+      link: '$downBasePath/2014/gabarito_2014.pdf',
+    ),
+    Asset(
+      title: 'Prova Marcada POSCOMP 2014',
+      link: '$downBasePath/2014/caderno_2014_marcado.pdf',
+    ),
+  ],
+);
+
+final Exam exam2013 = Exam(
+  title: 'POSCOMP 2013',
+  year: 2013,
+  assets: <Asset>[
+    Asset(
+      title: 'Prova POSCOMP 2013',
+      link: '$downBasePath/2013/caderno_2013.pdf',
+    ),
+    Asset(
+      title: 'Gabarito POSCOMP 2013',
+      link: '$downBasePath/2013/gabarito_2013.PDF',
+    ),
+    Asset(
+      title: 'Prova Marcada POSCOMP 2013',
+      link: '$downBasePath/2013/caderno_2013_marcado.pdf',
+    ),
+  ],
+);
+
+final Exam exam2012 = Exam(
+  title: 'POSCOMP 2012',
+  year: 2012,
+  assets: <Asset>[
+    Asset(
+      title: 'Prova POSCOMP 2012',
+      link: '$downBasePath/2012/caderno_2012.pdf',
+    ),
+    Asset(
+      title: 'Gabarito POSCOMP 2012',
+      link: '$downBasePath/2012/gabarito_2012.PDF',
+    ),
+    Asset(
+      title: 'Prova Marcada POSCOMP 2012',
+      link: '$downBasePath/2013/caderno_2012_marcado.pdf',
+    ),
+  ],
+);
+
+final Exam exam2011 = Exam(
+  title: 'POSCOMP 2011',
+  year: 2011,
+  assets: <Asset>[
+    Asset(
+      title: 'Prova POSCOMP 2011',
+      link: '$downBasePath/2011/caderno_2011.pdf',
+    ),
+    Asset(
+      title: 'Gabarito POSCOMP 2011',
+      link: '$downBasePath/2011/gabarito_2011.pdf',
+    ),
+    Asset(
+      title: 'Prova Marcada POSCOMP 2011',
+      link: '$downBasePath/2011/caderno_2011_marcado.pdf',
+    )
+  ],
+);
+
+final Exam exam2010 = Exam(
+  title: 'POSCOMP 2010',
+  year: 2010,
+  assets: <Asset>[
+    Asset(
+      title: 'Prova POSCOMP 2010',
+      link: '$downBasePath/2010/caderno_2010.pdf',
+    ),
+    Asset(
+      title: 'Gabarito POSCOMP 2010',
+      link: '$downBasePath/2010/gabarito_2010.pdf',
+    ),
+    Asset(
+      title: 'Prova Marcada POSCOMP 2010',
+      link: '$downBasePath/2010/caderno_2010_marcado.pdf',
+    )
+  ],
+);

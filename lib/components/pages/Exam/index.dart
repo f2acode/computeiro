@@ -3,8 +3,6 @@ import 'package:scoped_model/scoped_model.dart';
 
 import 'package:computeiro/scoped_model/app_state.dart';
 
-import 'package:computeiro/core/constants/index.dart';
-
 import 'package:computeiro/components/organisms/index.dart';
 import 'package:computeiro/components/pages/Exam/view_model.dart';
 
@@ -15,9 +13,7 @@ class Exam extends StatelessWidget {
       builder: (BuildContext ctx, Widget child, AppState appState) {
         final ViewModel vm = ViewModel(ctx);
         return Scaffold(
-          appBar: AppBar(
-            title: Text(poscompExamYear(vm.examYear.toString())),
-          ),
+          appBar: AppBar(title: Text(vm.title)),
           body: Question(
             questionText: vm.questionText,
             questionIndex: vm.questionIndex,

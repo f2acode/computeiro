@@ -8,6 +8,7 @@ import 'package:computeiro/core/models/index.dart';
 class ViewModel {
   ViewModel(BuildContext context) {
     final AppState appState = ScopedModel.of<AppState>(context);
+
     exams = appState.exams;
     loading = appState.isLoading;
     onChangeCurrentExam = (int newValue) {

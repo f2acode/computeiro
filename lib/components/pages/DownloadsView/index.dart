@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'package:computeiro/scoped_model/app_state.dart';
 
+import 'package:computeiro/core/models/Exam/asset.dart';
+import 'package:computeiro/core/models/index.dart';
 import 'package:computeiro/core/constants/index.dart';
+
+import 'package:computeiro/components/pages/DownloadsView/view_model.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +18,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final List<String> examFiles = <String>['POSCOMP 2017', 'POSCOMP 2018'];
   String taskId;
 
   Future<String> _findLocalPath() async {
@@ -46,15 +48,13 @@ class _HomeState extends State<Home> {
     return false;
   }
 
-  Future<void> fetchPost() async {
-    String localPath = (await _findLocalPath()) + '/Download';
+  Future<void> fetchPost(String link) async {
+    final String localPath = (await _findLocalPath()) + '/Download';
 
     taskId = await FlutterDownloader.enqueue(
-      url:
-          'https://github.com/amimaro/Provas-POSCOMP/raw/master/2018/caderno_2018.pdf',
+      url: link,
       savedDir: localPath,
-      showNotification:
-          true, // show download progress in status bar (for Android)
+      showNotification: true, // download progress status bar (for Android)
       openFileFromNotification:
           true, // click on notification to open downloaded file (for Android)
     );
@@ -64,24 +64,56 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return ScopedModelDescendant<AppState>(
       builder: (BuildContext ctx, Widget c, AppState s) {
+        final ViewModel vm = ViewModel(context);
+        final List<Asset> assets = <Asset>[];
+
+        for (Exam e in vm.exams) {
+          assets.addAll(e.assets.map((Asset a) => a));
+        }
+
         return Scaffold(
           body: Column(
             children: <Widget>[
               Expanded(
                 child: ListView.builder(
-                  itemCount: examFiles.length,
+                  itemCount: assets.length,
                   itemBuilder: (BuildContext context, int index) {
-                    return ListTile(
-                      title: Text(examFiles[index]),
+                    final String title = assets[index].title;
+                    final bool isExam = title.substring(0, 5) == 'Prova';
+                    return Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: ListTile(
+                          title: Text(title),
+                          leading: Icon(
+                            isExam
+                                ? Icons.insert_drive_file
+                                : Icons.filter_tilt_shift,
+                          ),
+                          trailing: RaisedButton(
+                            child: const Text('Baixar'),
+                            onPressed: () {
+                              _checkPermission().then((dynamic hasGranted) {
+                                if (hasGranted) {
+                                  fetchPost(assets[index].link);
+                                }
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                    );
+                    /* ListTile(
+                      title: Text(assets[index].title),
                       leading: const Icon(Icons.insert_drive_file),
                       onTap: () {
                         _checkPermission().then((dynamic hasGranted) {
                           if (hasGranted) {
-                            fetchPost();
+                            fetchPost(assets[index].link);
                           }
                         });
                       },
-                    );
+                    ); */
                   },
                 ),
               ),
