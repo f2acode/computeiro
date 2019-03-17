@@ -3,7 +3,7 @@ const String welcome = 'Bem vindo computeirxs!';
 const String home = 'Home';
 const String poscomp = 'Poscomp';
 const String about = 'About';
-const String nextQuestion = 'PRÓXIMA';
+const String answerQuestion = 'RESPONDER';
 const String previousQuestion = 'ANTERIOR';
 const String finishExam = 'TERMINAR';
 

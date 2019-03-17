@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter_tex/flutter_tex.dart';
 
 import 'package:computeiro/core/constants/index.dart';
 
@@ -24,7 +24,17 @@ class Question extends StatelessWidget {
 
   final List<Widget> content = <Widget>[];
 
-  List<Widget> buildActions() {
+  void showAlternatives(BuildContext context) {
+    showDialog<AlertDialog>(
+      context: context,
+      builder: (_) => AlertDialog(
+            title: const Text('Dialog Title'),
+            content: const Text('This is my content'),
+          ),
+    );
+  }
+
+  List<Widget> buildActions(BuildContext context) {
     final List<Widget> actions = <Widget>[];
 
     if (questionIndex > 0) {
@@ -52,8 +62,8 @@ class Question extends StatelessWidget {
       Container(
         padding: const EdgeInsets.only(right: 5, left: 5),
         child: RaisedButton(
-          child: const Text(nextQuestion),
-          onPressed: onNextQuestion,
+          child: const Text(answerQuestion),
+          onPressed: () => showAlternatives(context),
         ),
       ),
     );
@@ -61,8 +71,20 @@ class Question extends StatelessWidget {
     return actions;
   }
 
-  Widget buildAlternative(String altValue, String altText) {
-    return Row(
+  /*
+  Widget buildAlternative(String altValue, String altText, int i) {
+    return ExpansionTile(
+      title: Text('Alternativa $i'),
+      children: <Widget>[
+        Container(
+          height: 50,
+          child: TeXView(
+            teXHTML: altText,
+          ),
+        ),
+      ],
+    );
+     return Row(
       children: <Widget>[
         Radio<String>(
           value: altValue,
@@ -72,38 +94,44 @@ class Question extends StatelessWidget {
         ),
         Text(altText),
       ],
-    );
-  }
+    ); 
+  }*/
 
-  List<Widget> buildQuestion() {
+  List<Widget> buildQuestion(double height) {
     final List<Widget> content = <Widget>[];
 
-    content.add(MarkdownBody(data: questionText));
+    content.add(
+      Container(
+        height: height,
+        child: TeXView(
+          teXHTML: questionText,
+        ),
+      ),
+    );
 
-    for (int i = 0; i < alternatives.length; i++) {
+    /* for (int i = 0; i < alternatives.length; i++) {
       content.add(
         buildAlternative(
           alternatives[i],
           questionAlternatives[i],
+          i,
         ),
       );
-    }
-
-    content.add(
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: buildActions(),
-      ),
-    );
+    } */
 
     return content;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: buildQuestion(),
+    return Scaffold(
+      body: ListView(
+        children: buildQuestion(MediaQuery.of(context).size.height),
+      ),
+      bottomNavigationBar: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: buildActions(context),
+      ),
     );
   }
 }
