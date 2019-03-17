@@ -3,6 +3,71 @@ import 'package:flutter_tex/flutter_tex.dart';
 
 import 'package:computeiro/core/constants/index.dart';
 
+class AnswerDialog extends StatefulWidget {
+  const AnswerDialog({
+    this.content,
+    this.alternatives,
+    this.currentAnswer,
+    this.onSelectAlternativeAction,
+    this.questionAlternatives,
+  });
+
+  final List<Widget> content;
+  final List<String> alternatives, questionAlternatives;
+  final String currentAnswer;
+  final Function onSelectAlternativeAction;
+
+  @override
+  _AnswerDialogState createState() => _AnswerDialogState();
+}
+
+class _AnswerDialogState extends State<AnswerDialog> {
+  String alternative = 'B';
+
+  Widget buildAlternative(String altValue, String altText, int i) {
+    print(widget.currentAnswer);
+    return Row(
+      children: <Widget>[
+        Radio<String>(
+          value: altValue,
+          groupValue: alternative,
+          onChanged: (String a) {
+            widget.onSelectAlternativeAction(alternative);
+            setState(() => alternative = a);
+          },
+        ),
+        Text(altText),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print(widget.currentAnswer);
+    final List<Widget> content = <Widget>[];
+
+    for (int i = 0; i < widget.alternatives.length; i++) {
+      content.add(
+        buildAlternative(
+          widget.alternatives[i],
+          widget.questionAlternatives[i],
+          i,
+        ),
+      );
+    }
+
+    return AlertDialog(
+      title: Center(
+        child: const Text(
+          'Selecione a alternativa',
+          style: TextStyle(fontSize: 16),
+        ),
+      ),
+      content: Column(children: content),
+    );
+  }
+}
+
 class Question extends StatelessWidget {
   Question({
     this.questionText,
@@ -27,9 +92,12 @@ class Question extends StatelessWidget {
   void showAlternatives(BuildContext context) {
     showDialog<AlertDialog>(
       context: context,
-      builder: (_) => AlertDialog(
-            title: const Text('Dialog Title'),
-            content: const Text('This is my content'),
+      builder: (_) => AnswerDialog(
+            content: content,
+            alternatives: alternatives,
+            currentAnswer: currentAnswer,
+            onSelectAlternativeAction: onSelectAlternativeAction,
+            questionAlternatives: questionAlternatives,
           ),
     );
   }
@@ -71,32 +139,6 @@ class Question extends StatelessWidget {
     return actions;
   }
 
-  /*
-  Widget buildAlternative(String altValue, String altText, int i) {
-    return ExpansionTile(
-      title: Text('Alternativa $i'),
-      children: <Widget>[
-        Container(
-          height: 50,
-          child: TeXView(
-            teXHTML: altText,
-          ),
-        ),
-      ],
-    );
-     return Row(
-      children: <Widget>[
-        Radio<String>(
-          value: altValue,
-          groupValue: currentAnswer,
-          onChanged: (String alternative) =>
-              onSelectAlternativeAction(alternative),
-        ),
-        Text(altText),
-      ],
-    ); 
-  }*/
-
   List<Widget> buildQuestion(double height) {
     final List<Widget> content = <Widget>[];
 
@@ -108,16 +150,6 @@ class Question extends StatelessWidget {
         ),
       ),
     );
-
-    /* for (int i = 0; i < alternatives.length; i++) {
-      content.add(
-        buildAlternative(
-          alternatives[i],
-          questionAlternatives[i],
-          i,
-        ),
-      );
-    } */
 
     return content;
   }
