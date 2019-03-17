@@ -14,10 +14,9 @@ class AppState extends Model {
 
   factory AppState.initial() => AppState(
         isLoading: true,
-        bottomNavIndex: 2,
+        bottomNavIndex: 0,
         exams: <Exam>[
           Exam(questions: exam2018, year: 2018),
-          //Exam(questions: exam2017, year: 2017),
         ],
         profile: Profile.init(),
         resultDumbSearch: '',

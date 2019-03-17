@@ -19,9 +19,11 @@ class PoscompStatus {
   }
 
   void nextQuestion() {
-    answers = List<String>.from(answers)..add('');
+    if (questionIndex < 1) {
+      answers = List<String>.from(answers)..add('');
 
-    questionIndex = questionIndex + 1;
+      questionIndex = questionIndex + 1;
+    }
   }
 
   void previousQuestion() {

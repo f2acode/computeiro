@@ -37,11 +37,11 @@ class BottomNavigator extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                title: Text(home),
+                icon: Icon(Icons.cloud_download),
+                title: Text(downloads),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.school),
+                icon: Icon(Icons.grade),
                 title: Text(poscomp),
               ),
               BottomNavigationBarItem(

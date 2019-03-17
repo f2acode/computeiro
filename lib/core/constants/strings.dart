@@ -1,6 +1,6 @@
 const String appTitle = 'Computeiro';
 const String welcome = 'Bem vindo computeirxs!';
-const String home = 'Home';
+const String downloads = 'Downloads';
 const String poscomp = 'Poscomp';
 const String about = 'About';
 const String answerQuestion = 'Responder';
