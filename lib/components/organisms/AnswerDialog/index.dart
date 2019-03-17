@@ -6,12 +6,11 @@ class AnswerDialog extends StatefulWidget {
     this.alternatives,
     this.currentAnswer,
     this.onSelectAlternativeAction,
-    this.questionAlternatives,
     this.onNextQuestion,
   });
 
   final List<Widget> content;
-  final List<String> alternatives, questionAlternatives;
+  final List<String> alternatives;
   final String currentAnswer;
   final Function onSelectAlternativeAction;
   final Function onNextQuestion;

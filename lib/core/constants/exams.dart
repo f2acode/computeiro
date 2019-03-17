@@ -28,13 +28,6 @@ final List<Question> exam2018 = <Question>[
       <p>E) Somente para valores nulos.</p>
     '''),
     correctAnswer: 'C',
-    alternatives: <String>[
-      Uri.encodeComponent(''),
-      Uri.encodeComponent(''),
-      Uri.encodeComponent(''),
-      Uri.encodeComponent(''),
-      Uri.encodeComponent('')
-    ],
   ),
   Question(
     text: Uri.encodeComponent(r'''
@@ -55,13 +48,6 @@ final List<Question> exam2018 = <Question>[
       <p>E)\(\eta\) = 3, \(\mu\)= 3, \(\lambda\)= 3</p>
     '''),
     correctAnswer: 'E',
-    alternatives: <String>[
-      'bla bla',
-      'ahsdhasd',
-      'oioioi',
-      'jurubeba',
-      'asdasd'
-    ],
   ),
 ];
 
@@ -72,25 +58,11 @@ final List<Question> exam2018 = <Question>[
           ![Flutter logo](https://upload.wikimedia.org/wikipedia/commons/b/b9/Matrix_%28maths%29%2C_revised.png) é diagonizável?
           ''',
     correctAnswer: 'C',
-    alternatives: <String>[
-      'bla bla',
-      'ahsdhasd',
-      'oioioi',
-      'jurubeba',
-      'asdasd'
-    ],
   ),
   Question(
     text: '''
           Calcule as coordenadas de 1 + 𝑡 + 𝑡^2 na base (1,𝑡 − 1, (𝑡 − 1)^2), considerando 𝑬 = ℝ^𝟐[𝒕], sendo as coordenadas: (𝜆, 𝜇, 𝜂).
           ''',
     correctAnswer: 'E',
-    alternatives: <String>[
-      'bla bla',
-      'ahsdhasd',
-      'oioioi',
-      'jurubeba',
-      'asdasd'
-    ],
   ),
 ]; */
