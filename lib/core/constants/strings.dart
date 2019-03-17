@@ -3,9 +3,9 @@ const String welcome = 'Bem vindo computeirxs!';
 const String home = 'Home';
 const String poscomp = 'Poscomp';
 const String about = 'About';
-const String answerQuestion = 'RESPONDER';
-const String previousQuestion = 'ANTERIOR';
-const String finishExam = 'TERMINAR';
+const String answerQuestion = 'Responder';
+const String previousQuestion = 'Anterior';
+const String finishExam = 'Terminar';
 
 const String insertingExams = 'Inserção das provas em andamento';
 const String aboutMe = '''

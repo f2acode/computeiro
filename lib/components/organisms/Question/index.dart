@@ -3,77 +3,13 @@ import 'package:flutter_tex/flutter_tex.dart';
 
 import 'package:computeiro/core/constants/index.dart';
 
-class AnswerDialog extends StatefulWidget {
-  const AnswerDialog({
-    this.content,
-    this.alternatives,
-    this.currentAnswer,
-    this.onSelectAlternativeAction,
-    this.questionAlternatives,
-  });
-
-  final List<Widget> content;
-  final List<String> alternatives, questionAlternatives;
-  final String currentAnswer;
-  final Function onSelectAlternativeAction;
-
-  @override
-  _AnswerDialogState createState() => _AnswerDialogState();
-}
-
-class _AnswerDialogState extends State<AnswerDialog> {
-  String alternative = 'B';
-
-  Widget buildAlternative(String altValue, String altText, int i) {
-    print(widget.currentAnswer);
-    return Row(
-      children: <Widget>[
-        Radio<String>(
-          value: altValue,
-          groupValue: alternative,
-          onChanged: (String a) {
-            widget.onSelectAlternativeAction(alternative);
-            setState(() => alternative = a);
-          },
-        ),
-        Text(altText),
-      ],
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    print(widget.currentAnswer);
-    final List<Widget> content = <Widget>[];
-
-    for (int i = 0; i < widget.alternatives.length; i++) {
-      content.add(
-        buildAlternative(
-          widget.alternatives[i],
-          widget.questionAlternatives[i],
-          i,
-        ),
-      );
-    }
-
-    return AlertDialog(
-      title: Center(
-        child: const Text(
-          'Selecione a alternativa',
-          style: TextStyle(fontSize: 16),
-        ),
-      ),
-      content: Column(children: content),
-    );
-  }
-}
+import 'package:computeiro/components/organisms/AnswerDialog/index.dart';
 
 class Question extends StatelessWidget {
   Question({
     this.questionText,
     this.questionIndex,
     this.alternatives,
-    this.questionAlternatives,
     this.onPreviousQuestion,
     this.onNextQuestion,
     this.currentAnswer,
@@ -82,7 +18,7 @@ class Question extends StatelessWidget {
 
   final String questionText, currentAnswer;
   final int questionIndex;
-  final List<String> alternatives, questionAlternatives;
+  final List<String> alternatives;
   final Function onSelectAlternativeAction;
   final Function onPreviousQuestion;
   final Function onNextQuestion;
@@ -97,7 +33,7 @@ class Question extends StatelessWidget {
             alternatives: alternatives,
             currentAnswer: currentAnswer,
             onSelectAlternativeAction: onSelectAlternativeAction,
-            questionAlternatives: questionAlternatives,
+            onNextQuestion: onNextQuestion,
           ),
     );
   }
@@ -121,7 +57,7 @@ class Question extends StatelessWidget {
         padding: const EdgeInsets.only(right: 5, left: 5),
         child: RaisedButton(
           child: const Text(finishExam),
-          onPressed: () => print('TERMINAR'),
+          onPressed: () => print('Terminar'),
         ),
       ),
     );
@@ -146,6 +82,7 @@ class Question extends StatelessWidget {
       Container(
         height: height,
         child: TeXView(
+          key: Key(questionText),
           teXHTML: questionText,
         ),
       ),

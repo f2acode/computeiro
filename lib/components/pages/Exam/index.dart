@@ -23,7 +23,6 @@ class Exam extends StatelessWidget {
             questionIndex: vm.questionIndex,
             currentAnswer: vm.currentAnswer,
             alternatives: const <String>['A', 'B', 'C', 'D', 'E'],
-            questionAlternatives: vm.questionAlternatives,
             onSelectAlternativeAction: vm.onSelectAlternativeAction,
             onNextQuestion: vm.onNextQuestion,
             onPreviousQuestion: vm.onPreviousQuestion,

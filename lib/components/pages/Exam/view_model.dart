@@ -21,7 +21,6 @@ class ViewModel {
     questionIndex = profile.poscompStatus.questionIndex;
     currentAnswer = answers.isNotEmpty ? answers[questionIndex] : '';
     questionText = currentExam.questions[questionIndex].text;
-    questionAlternatives = currentExam.questions[questionIndex].alternatives;
 
     onSelectAlternativeAction = (String alternative) {
       appState.profile.poscompStatus.insertAnswer(
@@ -44,6 +43,5 @@ class ViewModel {
   Function(String) onSelectAlternativeAction;
   Function onNextQuestion, onPreviousQuestion;
   String currentAnswer, questionText;
-  List<String> questionAlternatives;
   int examYear, questionIndex;
 }
