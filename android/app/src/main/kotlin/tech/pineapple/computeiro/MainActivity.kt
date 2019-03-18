@@ -1,4 +1,4 @@
-package com.example.computeiro
+package pineapple.tech.computeiro
 
 import android.os.Bundle
 
