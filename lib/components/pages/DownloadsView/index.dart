@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
@@ -8,7 +9,6 @@ import 'package:computeiro/scoped_model/app_state.dart';
 
 import 'package:computeiro/core/models/Exam/asset.dart';
 import 'package:computeiro/core/models/index.dart';
-import 'package:computeiro/core/constants/index.dart';
 
 import 'package:computeiro/components/pages/DownloadsView/view_model.dart';
 
@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
   String taskId;
 
   Future<String> _findLocalPath() async {
-    final directory = await getExternalStorageDirectory();
+    final Directory directory = await getExternalStorageDirectory();
     /* widget.platform == TargetPlatform.android
         ? await getExternalStorageDirectory()
         : await getApplicationDocumentsDirectory(); */
@@ -32,10 +32,13 @@ class _HomeState extends State<Home> {
     //if (widget.platform == TargetPlatform.android) {
     final PermissionStatus permission = await PermissionHandler()
         .checkPermissionStatus(PermissionGroup.storage);
+
     if (permission != PermissionStatus.granted) {
       final Map<PermissionGroup, PermissionStatus> permissions =
-          await PermissionHandler()
-              .requestPermissions([PermissionGroup.storage]);
+          await PermissionHandler().requestPermissions(
+        <PermissionGroup>[PermissionGroup.storage],
+      );
+
       if (permissions[PermissionGroup.storage] == PermissionStatus.granted) {
         return true;
       }
@@ -103,17 +106,6 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     );
-                    /* ListTile(
-                      title: Text(assets[index].title),
-                      leading: const Icon(Icons.insert_drive_file),
-                      onTap: () {
-                        _checkPermission().then((dynamic hasGranted) {
-                          if (hasGranted) {
-                            fetchPost(assets[index].link);
-                          }
-                        });
-                      },
-                    ); */
                   },
                 ),
               ),

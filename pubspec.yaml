@@ -20,6 +20,14 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.7.0"
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/computeiro.png"
+  adaptive_icon_background: "#FFFAFAFA"
+  adaptive_icon_foreground: "assets/icon/computeiro.png"
 
 flutter:
   uses-material-design: true
