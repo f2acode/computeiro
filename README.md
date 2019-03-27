@@ -1,4 +1,4 @@
-### Some common errors
+### Common errors
 
 - When app doesn't start
 
