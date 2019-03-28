@@ -38,11 +38,17 @@ class BottomNavigator extends StatelessWidget {
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.cloud_download),
-                title: Text(downloads),
+                title: Text(
+                  downloads,
+                  key: Key('download_tab'),
+                ),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.grade),
-                title: Text(poscomp),
+                title: Text(
+                  poscomp,
+                  key: Key('poscomp_tab'),
+                ),
               ),
               /* BottomNavigationBarItem(
                 icon: Icon(Icons.developer_mode),
