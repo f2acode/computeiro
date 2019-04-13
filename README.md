@@ -1,11 +1,11 @@
-### Common errors
+# Computeiro
 
-- When app doesn't start
+[![Codemagic build status](https://api.codemagic.io/apps/5cb165b1aef6f8001d732419/5cb165b1aef6f8001d732418/status_badge.svg)](https://codemagic.io/apps/5cb165b1aef6f8001d732419/5cb165b1aef6f8001d732418/latest_build)
 
-Checkout to some flutter working version, like so:
+It's a simple app to test some app features.
 
-`felipeaugustox@insp-7560:~/dev-tools/flutter$ git checkout v"1.2.0"`
+## Build a new version
 
-- Build a new version
-
-`flutter build apk --build-name=1.0.3 --build-number=3`
+```
+flutter build apk --build-name=1.0.3 --build-number=3
+```
