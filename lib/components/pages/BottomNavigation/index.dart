@@ -13,7 +13,7 @@ class BottomNavigator extends StatelessWidget {
     final List<Widget> possibleWidgets = <Widget>[
       Home(),
       ExamsList(),
-      //About(),
+      About(),
     ];
 
     return possibleWidgets[index];
@@ -50,10 +50,10 @@ class BottomNavigator extends StatelessWidget {
                   key: Key('poscomp_tab'),
                 ),
               ),
-              /* BottomNavigationBarItem(
+              BottomNavigationBarItem(
                 icon: Icon(Icons.developer_mode),
                 title: Text(about),
-              ), */
+              ),
             ],
             currentIndex: vm.bottomNavIndex,
             fixedColor: Theme.of(context).accentColor,

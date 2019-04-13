@@ -17,7 +17,8 @@ flutter build apk --build-name=1.0.3 --build-number=3
 used for ads
 
 app ID: ca-app-pub-5728986947581808~8852586496
-ad ID: ca-app-pub-5728986947581808/5105801226
+interistitial ad ID: ca-app-pub-5728986947581808/5105801226
+banner ad ID: ca-app-pub-5728986947581808/7839721877
 
 ### [analytics](https://console.firebase.google.com/u/0/project/computeiro-520c1/analytics/app/android:pineapple.tech.computeiro/overview%3Ft=1&cs=app.m.dashboard.overview&g=1)
 
