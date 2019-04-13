@@ -18,7 +18,7 @@ dependencies:
   permission_handler: ^2.2.0
   firebase_core: ^0.3.4
   firebase_analytics: ^2.1.1+1
-  # admob_flutter: ^0.1.2
+  admob_flutter: ^0.1.2
 
 dev_dependencies:
   flutter_test:

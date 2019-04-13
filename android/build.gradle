@@ -27,6 +27,12 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
+subprojects {
+    configurations.all() {
+        resolutionStrategy.force "com.google.firebase:firebase-core:16.0.5"
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
