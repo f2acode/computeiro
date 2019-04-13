@@ -16,11 +16,14 @@ dependencies:
   flutter_downloader: ^1.1.6
   path_provider: ^0.5.0+1
   permission_handler: ^2.2.0
+  firebase_core: ^0.3.4
+  firebase_analytics: ^2.1.1+1
+  # admob_flutter: ^0.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: "^0.7.0"
+  flutter_launcher_icons: ^0.7.0
   flutter_driver:
     sdk: flutter
   test: any
