@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:admob_flutter/admob_flutter.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
 class About extends StatefulWidget {
@@ -8,37 +8,31 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
+  BannerAd myBanner = BannerAd(
+    adUnitId: 'ca-app-pub-5728986947581808/7839721877',
+    size: AdSize.smartBanner,
+    listener: (MobileAdEvent event) {
+      print('BannerAd event is $event');
+    },
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    myBanner
+      ..load()
+      ..show(
+        anchorOffset: 60.0,
+        anchorType: AnchorType.bottom,
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        AdmobBanner(
-            adUnitId: 'ca-app-pub-5728986947581808/7839721877',
-            adSize: AdmobBannerSize.BANNER,
-            listener: (AdmobAdEvent event, Map<String, dynamic> args) {
-              switch (event) {
-                case AdmobAdEvent.loaded:
-                  print('Admob banner loaded!');
-                  break;
-
-                case AdmobAdEvent.opened:
-                  print('Admob banner opened!');
-                  break;
-
-                case AdmobAdEvent.closed:
-                  print('Admob banner closed!');
-                  break;
-
-                case AdmobAdEvent.failedToLoad:
-                  print(
-                      'Admob banner failed to load. Error code: ${args['errorCode']}');
-                  break;
-                default:
-                  print('OTHER THING HAPPENED');
-              }
-            }),
         Container(
           height: 300,
           width: double.infinity,
@@ -50,7 +44,7 @@ class _AboutState extends State<About> {
             Caso queira contribuir é só clicar no anúncio :)
             ''',
           ),
-        )
+        ),
       ],
     );
   }

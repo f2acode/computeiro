@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tex/flutter_tex.dart';
-
-import 'package:computeiro/core/constants/index.dart';
-
-import 'package:computeiro/components/organisms/AnswerDialog/index.dart';
+import 'package:computeiro/components/organisms/index.dart';
 
 class Question extends StatelessWidget {
   Question({
@@ -46,7 +43,7 @@ class Question extends StatelessWidget {
         Container(
           padding: const EdgeInsets.only(right: 5, left: 5),
           child: RaisedButton(
-            child: const Text(previousQuestion),
+            child: const Text('Anterior'),
             onPressed: onPreviousQuestion,
           ),
         ),
@@ -56,7 +53,7 @@ class Question extends StatelessWidget {
       Container(
         padding: const EdgeInsets.only(right: 5, left: 5),
         child: RaisedButton(
-          child: const Text(finishExam),
+          child: const Text('Terminar'),
           onPressed: () => print('Terminar'),
         ),
       ),
@@ -66,7 +63,7 @@ class Question extends StatelessWidget {
       Container(
         padding: const EdgeInsets.only(right: 5, left: 5),
         child: RaisedButton(
-          child: const Text(answerQuestion),
+          child: const Text('Responder'),
           onPressed: () => showAlternatives(context),
         ),
       ),
