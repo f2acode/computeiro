@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:computeiro/core/style/index.dart';
 
 class AppTheme {
@@ -10,9 +9,6 @@ class AppTheme {
       errorColor: pink,
       scaffoldBackgroundColor: lightGray,
       canvasColor: darkGray,
-      //brightness: Brightness.light,
-      //backgroundColor: Colors.red,
-      //bottomAppBarColor: Colors.red,
       fontFamily: 'Roboto',
       buttonTheme: const ButtonThemeData(
         buttonColor: darkGray,

@@ -4,12 +4,9 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 import 'package:computeiro/scoped_model/app_state.dart';
-
 import 'package:computeiro/core/models/Exam/asset.dart';
 import 'package:computeiro/core/models/index.dart';
-
 import 'package:computeiro/components/pages/DownloadsView/view_model.dart';
 
 class Home extends StatefulWidget {
@@ -22,14 +19,10 @@ class _HomeState extends State<Home> {
 
   Future<String> _findLocalPath() async {
     final Directory directory = await getExternalStorageDirectory();
-    /* widget.platform == TargetPlatform.android
-        ? await getExternalStorageDirectory()
-        : await getApplicationDocumentsDirectory(); */
     return directory.path;
   }
 
   Future<bool> _checkPermission() async {
-    //if (widget.platform == TargetPlatform.android) {
     final PermissionStatus permission = await PermissionHandler()
         .checkPermissionStatus(PermissionGroup.storage);
 
@@ -45,9 +38,6 @@ class _HomeState extends State<Home> {
     } else {
       return true;
     }
-    /* } else {
-      return true;
-    } */
     return false;
   }
 
@@ -57,9 +47,8 @@ class _HomeState extends State<Home> {
     taskId = await FlutterDownloader.enqueue(
       url: link,
       savedDir: localPath,
-      showNotification: true, // download progress status bar (for Android)
-      openFileFromNotification:
-          true, // click on notification to open downloaded file (for Android)
+      showNotification: true,
+      openFileFromNotification: true,
     );
   }
 
