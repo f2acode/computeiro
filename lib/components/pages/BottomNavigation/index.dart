@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
-
 import 'package:computeiro/scoped_model/app_state.dart';
-
-import 'package:computeiro/core/constants/index.dart';
-
 import 'package:computeiro/components/pages/index.dart';
 import 'package:computeiro/components/pages/BottomNavigation/view_model.dart';
 
@@ -12,7 +8,7 @@ class BottomNavigator extends StatelessWidget {
   Widget _handleWidgetOption(int index) {
     final List<Widget> possibleWidgets = <Widget>[
       Home(),
-      ExamsList(),
+      //ExamsList(),
       About(),
     ];
 
@@ -27,7 +23,7 @@ class BottomNavigator extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              appTitle,
+              'Computeiro',
               style: TextStyle(color: Theme.of(context).accentColor),
             ),
           ),
@@ -39,20 +35,20 @@ class BottomNavigator extends StatelessWidget {
               BottomNavigationBarItem(
                 icon: Icon(Icons.cloud_download),
                 title: Text(
-                  downloads,
+                  'Downloads',
                   key: Key('download_tab'),
                 ),
               ),
-              BottomNavigationBarItem(
+              /* BottomNavigationBarItem(
                 icon: Icon(Icons.grade),
                 title: Text(
-                  poscomp,
+                  'Poscomp',
                   key: Key('poscomp_tab'),
                 ),
-              ),
+              ), */
               BottomNavigationBarItem(
                 icon: Icon(Icons.developer_mode),
-                title: Text(about),
+                title: Text('About'),
               ),
             ],
             currentIndex: vm.bottomNavIndex,
