@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
   @override
@@ -27,6 +28,16 @@ class _AboutState extends State<About> {
       );
   }
 
+  Future<void> _launchURL() async {
+    const String url = 'https://computeiro-web.herokuapp.com/';
+
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,7 +45,7 @@ class _AboutState extends State<About> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
-          height: 300,
+          height: 200,
           width: double.infinity,
           child: const Markdown(
             data: '''
@@ -44,6 +55,10 @@ class _AboutState extends State<About> {
             Caso queira contribuir é só clicar no anúncio :)
             ''',
           ),
+        ),
+        RaisedButton(
+          onPressed: _launchURL,
+          child: const Text('Ver Política de Privacidade'),
         ),
       ],
     );
