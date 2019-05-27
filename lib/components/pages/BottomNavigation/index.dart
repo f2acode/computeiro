@@ -8,7 +8,7 @@ class BottomNavigator extends StatelessWidget {
   Widget _handleWidgetOption(int index) {
     final List<Widget> possibleWidgets = <Widget>[
       Home(),
-      //ExamsList(),
+      ExamsList(),
       About(),
     ];
 
@@ -39,13 +39,13 @@ class BottomNavigator extends StatelessWidget {
                   key: Key('download_tab'),
                 ),
               ),
-              /* BottomNavigationBarItem(
+              BottomNavigationBarItem(
                 icon: Icon(Icons.grade),
                 title: Text(
                   'Poscomp',
                   key: Key('poscomp_tab'),
                 ),
-              ), */
+              ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.developer_mode),
                 title: Text('About'),
