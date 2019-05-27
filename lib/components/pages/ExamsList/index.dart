@@ -18,7 +18,7 @@ class ExamsList extends StatelessWidget {
                   itemCount: vm.exams.length,
                   itemBuilder: (BuildContext context, int index) {
                     return ListTile(
-                      enabled: false,
+                      enabled: true,
                       title: Text('POSCOMP ${vm.exams[index].year}'),
                       subtitle: const Text('Inserção das provas em andamento'),
                       leading: const Icon(Icons.computer),
