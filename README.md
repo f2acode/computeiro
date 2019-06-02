@@ -10,6 +10,8 @@ It's a simple app to test some app features.
 flutter build apk --build-name=1.0.3 --build-number=3
 ```
 
+I'm using the codemagic, then I just need to change the `version: here+and_here` in pubspec.
+
 ## Tools used
 
 ### [admob](https://apps.admob.com/v2/apps/8852586496/adunits/list?_ga=2.111571204.1678589103.1555132940-411955671.1555132940)
