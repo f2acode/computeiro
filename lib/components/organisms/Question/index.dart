@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tex/flutter_tex.dart';
 import 'package:computeiro/components/organisms/index.dart';
+import 'package:computeiro/components/pages/index.dart';
 
 class Question extends StatelessWidget {
   Question({
@@ -22,9 +23,9 @@ class Question extends StatelessWidget {
 
   final List<Widget> content = <Widget>[];
 
-  void showAlternatives(BuildContext context) {
+  void showAlternatives(BuildContext ctx) {
     showDialog<AlertDialog>(
-      context: context,
+      context: ctx,
       builder: (_) => AnswerDialog(
             content: content,
             alternatives: alternatives,
@@ -35,7 +36,16 @@ class Question extends StatelessWidget {
     );
   }
 
-  List<Widget> buildActions(BuildContext context) {
+  void finishExam(BuildContext ctx) {
+    Navigator.push<MaterialPageRoute<FinishExamOverview>>(
+      ctx,
+      MaterialPageRoute<MaterialPageRoute<FinishExamOverview>>(
+        builder: (BuildContext context) => FinishExamOverview(),
+      ),
+    );
+  }
+
+  List<Widget> buildActions(BuildContext ctx) {
     final List<Widget> actions = <Widget>[];
 
     if (questionIndex > 0) {
@@ -54,7 +64,7 @@ class Question extends StatelessWidget {
         padding: const EdgeInsets.only(right: 5, left: 5),
         child: RaisedButton(
           child: const Text('Terminar'),
-          onPressed: () => print('Terminar'),
+          onPressed: () => finishExam(ctx),
         ),
       ),
     );
@@ -64,7 +74,7 @@ class Question extends StatelessWidget {
         padding: const EdgeInsets.only(right: 5, left: 5),
         child: RaisedButton(
           child: const Text('Responder'),
-          onPressed: () => showAlternatives(context),
+          onPressed: () => showAlternatives(ctx),
         ),
       ),
     );
