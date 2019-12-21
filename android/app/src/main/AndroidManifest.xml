@@ -15,7 +15,7 @@
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
     <application
-        android:name="io.flutter.app.FlutterApplication"
+        android:name=".MyApplication"
         android:label="Computeiro"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
@@ -49,6 +49,6 @@
         </provider>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="***REMOVED***"/>
+            android:value="ca-app-pub-5728986947581808~8852586496"/>
     </application>
 </manifest>
