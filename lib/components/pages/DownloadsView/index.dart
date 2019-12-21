@@ -44,6 +44,12 @@ class _HomeState extends State<Home> {
   Future<void> fetchPost(String link) async {
     final String localPath = (await _findLocalPath()) + '/Download';
 
+    final Directory savedDir = Directory(localPath);
+    final bool hasExisted = await savedDir.exists();
+    if (!hasExisted) {
+      savedDir.create();
+    }
+
     taskId = await FlutterDownloader.enqueue(
       url: link,
       savedDir: localPath,
