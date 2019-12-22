@@ -26,19 +26,19 @@
 ### Download historical exams and responses
 
 <p>
-<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/available_exams.webp' width='300px'/>
+<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/available_exams.webp' width='200px'/>
 
-<img alt='Computeiro App Downloaded exams' src='readme/downloaded_files.webp' width='300px'/>
+<img alt='Computeiro App Downloaded exams' src='readme/downloaded_files.webp' width='200px'/>
 </p>
 
 ### Make the test
 
 <p>
-<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/available_exams_do.jpeg' width='300px'/>
+<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/available_exams_do.jpeg' width='200px'/>
 
-<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/question.jpeg' width='300px'/>
+<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/question.jpeg' width='200px'/>
 
-<img alt='Computeiro App Downloaded exams' src='readme/select_alt.jpeg' width='300px'/>
+<img alt='Computeiro App Downloaded exams' src='readme/select_alt.jpeg' width='200px'/>
 </p>
 
 ## Contributing
