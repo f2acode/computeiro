@@ -14,14 +14,14 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 <p align="center">
-  <a href="#computeiro">Computeiro</a> •
+  <a href="#the-app">The App</a> •
   <a href="#contributing">Contributing</a> •
   <a href="#license">License</a>
 </p>
 </div>
 </div>
 
-## Computeiro
+## The app
 
 ### Download historical exams and responses
 
