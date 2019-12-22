@@ -23,7 +23,11 @@
 
 ## The app
 
-### Download historical exams and responses
+The basic idea is to provide power to people to study easily some subjects of computer science, for students, teachers, enthusiasts etc. So, any current/new features is always developed with them in mind.
+
+### POSCOMP exams and responses
+
+It's possible to download all the historical original exams and responses of POSCOMP exams
 
 <p>
 <img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/available_exams.webp' width='200px'/>
@@ -31,7 +35,9 @@
 <img alt='Computeiro App Downloaded exams' src='readme/downloaded_files.webp' width='200px'/>
 </p>
 
-### Make the test
+### Make the POSCOMP test
+
+By using the [flutter tex library](https://github.com/shah-xad/flutter_tex) we provide an awesome visualization of each question during the exam.
 
 <p>
 <img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/available_exams_do.jpeg' width='200px'/>
