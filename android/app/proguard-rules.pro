@@ -7,3 +7,6 @@
 -keep class io.flutter.plugins.**  { *; }
 -keep class vn.hunghd.flutterdownloader.**  { *; }
 -keep class com.baseflow.permissionhandler.**  { *; }
+
+-dontwarn android.view.**
+-dontwarn android.graphics.**
