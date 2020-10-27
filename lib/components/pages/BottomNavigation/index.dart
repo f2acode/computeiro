@@ -26,6 +26,7 @@ class BottomNavigator extends StatelessWidget {
               'Computeiro',
               style: TextStyle(color: Theme.of(context).accentColor),
             ),
+            centerTitle: true,
           ),
           body: Center(
             child: _handleWidgetOption(vm.bottomNavIndex),
@@ -46,6 +47,7 @@ class BottomNavigator extends StatelessWidget {
               ),
             ],
             currentIndex: vm.bottomNavIndex,
+            unselectedItemColor: Colors.white,
             fixedColor: Theme.of(context).accentColor,
             onTap: (int index) => vm.onChangeBottomNavIndex(index),
           ),
