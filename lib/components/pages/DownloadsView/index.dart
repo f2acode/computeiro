@@ -80,8 +80,8 @@ class _HomeState extends State<Home> {
                                 ? Icons.insert_drive_file
                                 : Icons.filter_tilt_shift,
                           ),
-                          trailing: RaisedButton(
-                            child: const Text('Baixar'),
+                          trailing: IconButton(
+                            icon: const Icon(Icons.download_rounded),
                             onPressed: () {
                               _checkPermission().then((dynamic hasGranted) {
                                 if (hasGranted) {

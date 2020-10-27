@@ -18,6 +18,8 @@ dependencies:
   firebase_core: ^0.5.0+1
   firebase_analytics: ^6.0.2
   url_launcher: ^5.7.5
+  share: ^0.6.5+3
+  flutter_svg: ^0.19.0
 
 dev_dependencies:
   flutter_test:
@@ -36,3 +38,5 @@ flutter_icons:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icon/

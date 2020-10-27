@@ -87,6 +87,7 @@ class Question extends StatelessWidget {
 
     content.add(
       Container(
+        padding: const EdgeInsets.all(20),
         height: height,
         child: TeXView(
           key: Key(questionText),
@@ -105,6 +106,7 @@ class Question extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: ListView(
         children: buildQuestion(MediaQuery.of(context).size.height),
       ),

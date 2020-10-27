@@ -19,6 +19,7 @@ class App extends StatelessWidget {
         title: 'Computeiro',
         theme: AppTheme().get(),
         home: BottomNavigator(),
+        debugShowCheckedModeBanner: false,
       ),
     );
   }
