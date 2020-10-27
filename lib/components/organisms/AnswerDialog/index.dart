@@ -51,8 +51,8 @@ class _AnswerDialogState extends State<AnswerDialog> {
     }
 
     return AlertDialog(
-      title: Center(
-        child: const Text(
+      title: const Center(
+        child: Text(
           'Selecione uma alternativa',
           style: TextStyle(fontSize: 16),
         ),

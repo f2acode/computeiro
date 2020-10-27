@@ -27,12 +27,12 @@ class Question extends StatelessWidget {
     showDialog<AlertDialog>(
       context: ctx,
       builder: (_) => AnswerDialog(
-            content: content,
-            alternatives: alternatives,
-            currentAnswer: currentAnswer,
-            onSelectAlternativeAction: onSelectAlternativeAction,
-            onNextQuestion: onNextQuestion,
-          ),
+        content: content,
+        alternatives: alternatives,
+        currentAnswer: currentAnswer,
+        onSelectAlternativeAction: onSelectAlternativeAction,
+        onNextQuestion: onNextQuestion,
+      ),
     );
   }
 
@@ -90,7 +90,11 @@ class Question extends StatelessWidget {
         height: height,
         child: TeXView(
           key: Key(questionText),
-          teXHTML: questionText,
+          child: TeXViewColumn(
+            children: <TeXViewDocument>[
+              TeXViewDocument(questionText),
+            ],
+          ),
         ),
       ),
     );

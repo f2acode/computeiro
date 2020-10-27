@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
@@ -20,25 +19,21 @@ class _AboutState extends State<About> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          height: 200,
-          width: double.infinity,
-          child: const Markdown(
-            data: '''
-            Olá!! Obrigado por baixar o app, espero que ele te ajude nos estudos!
-            Ele não possui nenhum anúncio.
-            ''',
+    return Container(
+      padding: EdgeInsets.all(24),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const Text(
+            'Olá!! Obrigado por baixar o app, espero que ele te ajude nos estudos! Ele não possui nenhum anúncio.',
           ),
-        ),
-        RaisedButton(
-          onPressed: _launchURL,
-          child: const Text('Ver Política de Privacidade'),
-        ),
-      ],
+          RaisedButton(
+            onPressed: _launchURL,
+            child: const Text('Ver Política de Privacidade'),
+          ),
+        ],
+      ),
     );
   }
 }

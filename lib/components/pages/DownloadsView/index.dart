@@ -23,29 +23,21 @@ class _HomeState extends State<Home> {
   }
 
   Future<bool> _checkPermission() async {
-    final PermissionStatus permission = await PermissionHandler()
-        .checkPermissionStatus(PermissionGroup.storage);
+    final PermissionStatus status = await Permission.storage.status;
 
-    if (permission != PermissionStatus.granted) {
-      final Map<PermissionGroup, PermissionStatus> permissions =
-          await PermissionHandler().requestPermissions(
-        <PermissionGroup>[PermissionGroup.storage],
-      );
+    if (status != PermissionStatus.granted) {
+      final PermissionStatus granted = await Permission.storage.request();
 
-      if (permissions[PermissionGroup.storage] == PermissionStatus.granted) {
-        return true;
-      }
-    } else {
-      return true;
+      return granted == PermissionStatus.granted;
     }
-    return false;
+    return true;
   }
 
   Future<void> fetchPost(String link) async {
     final String localPath = (await _findLocalPath()) + '/Download';
 
     final Directory savedDir = Directory(localPath);
-    final bool hasExisted = await savedDir.exists();
+    final bool hasExisted = savedDir.existsSync();
     if (!hasExisted) {
       savedDir.create();
     }
