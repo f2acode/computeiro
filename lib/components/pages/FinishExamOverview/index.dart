@@ -21,7 +21,7 @@ class FinishExamOverview extends StatelessWidget {
             ),
             label: Text(
               '${uAnswers[i]}',
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         );
@@ -34,7 +34,7 @@ class FinishExamOverview extends StatelessWidget {
             ),
             label: Text(
               '${uAnswers[i]}',
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
         );
@@ -63,12 +63,12 @@ class FinishExamOverview extends StatelessWidget {
               Text(
                 'Acertos/total: ${vm.hits}/${vm.total}',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22),
+                style: const TextStyle(fontSize: 22),
               ),
               Text(
                 'Porcentagem: ${vm.percentage.toStringAsFixed(2)}',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 22),
+                style: const TextStyle(fontSize: 22),
               ),
               //Text('${vm.userHits.where((bool h) => h == false)}'),
             ],

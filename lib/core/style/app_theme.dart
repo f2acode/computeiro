@@ -15,10 +15,10 @@ class AppTheme {
         textTheme: ButtonTextTheme.accent,
       ),
       textTheme: const TextTheme(
-        title: TextStyle(
+        headline6: TextStyle(
           fontSize: 24.0,
         ),
-        body1: TextStyle(),
+        bodyText2: TextStyle(),
       ),
     );
   }

@@ -1,5 +1,7 @@
 key.properties
 google-services.json
+.flutter-plugins-dependencies
+flutter_export_environment.sh
 
 # Miscellaneous
 *.class
