@@ -1,13 +1,10 @@
-import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
-import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:computeiro/scoped_model/app_state.dart';
+import 'package:computeiro/components/pages/DownloadsView/view_model.dart';
 import 'package:computeiro/core/models/Exam/asset.dart';
 import 'package:computeiro/core/models/index.dart';
-import 'package:computeiro/components/pages/DownloadsView/view_model.dart';
+import 'package:computeiro/core/services/requests/free_courses.dart';
+import 'package:computeiro/scoped_model/app_state.dart';
+import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -15,41 +12,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String taskId;
-
-  Future<String> _findLocalPath() async {
-    final Directory directory = await getExternalStorageDirectory();
-    return directory.path;
-  }
-
-  Future<bool> _checkPermission() async {
-    final PermissionStatus status = await Permission.storage.status;
-
-    if (status != PermissionStatus.granted) {
-      final PermissionStatus granted = await Permission.storage.request();
-
-      return granted == PermissionStatus.granted;
-    }
-    return true;
-  }
-
-  Future<void> fetchPost(String link) async {
-    final String localPath = (await _findLocalPath()) + '/Download';
-
-    final Directory savedDir = Directory(localPath);
-    final bool hasExisted = savedDir.existsSync();
-    if (!hasExisted) {
-      savedDir.create();
-    }
-
-    taskId = await FlutterDownloader.enqueue(
-      url: link,
-      savedDir: localPath,
-      showNotification: true,
-      openFileFromNotification: true,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<AppState>(
@@ -82,12 +44,14 @@ class _HomeState extends State<Home> {
                           ),
                           trailing: IconButton(
                             icon: const Icon(Icons.download_rounded),
-                            onPressed: () {
-                              _checkPermission().then((dynamic hasGranted) {
-                                if (hasGranted) {
-                                  fetchPost(assets[index].link);
-                                }
-                              });
+                            onPressed: () async {
+                              await fetchData(
+                                link: assets[index].link,
+                                fileName: 'categories.ts',
+                                openFileFromNotification: true,
+                                showNotification: true,
+                                replace: true,
+                              );
                             },
                           ),
                         ),
