@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:computeiro/scoped_model/app_state.dart';
 import 'package:computeiro/core/style/index.dart';
 import 'package:computeiro/components/pages/index.dart';
+
+import 'components/pages/FreeCourses/category_courses.dart';
+import 'components/pages/FreeCourses/course.dart';
 
 Future<void> main() async {
   await FlutterDownloader.initialize();
@@ -13,13 +17,25 @@ Future<void> main() async {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    precachePicture(
+      SvgPicture.asset(
+        "assets/icon/learn.svg",
+        semanticsLabel: 'learn',
+      ).pictureProvider,
+      context,
+    );
+
     return ScopedModel<AppState>(
       model: AppState.initial(),
       child: MaterialApp(
         title: 'Computeiro',
         theme: AppTheme().get(),
-        home: BottomNavigator(),
         debugShowCheckedModeBanner: false,
+        routes: {
+          '/': (BuildContext context) => BottomNavigator(),
+          '/category-course': (BuildContext context) => CategoryCourses(),
+          '/course': (BuildContext context) => Course(),
+        },
       ),
     );
   }
