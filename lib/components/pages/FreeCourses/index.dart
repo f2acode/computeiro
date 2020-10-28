@@ -7,8 +7,12 @@ import 'package:flutter/material.dart';
 class FreeCourses extends StatelessWidget {
   Future<List> getCategories() async {
     final File savedFile = await fetchData(
-      'https://raw.githubusercontent.com/Leocardoso94/Free-Courses/master/src/data/categories.ts',
-      'categories.ts',
+      link:
+          'https://raw.githubusercontent.com/Leocardoso94/Free-Courses/master/src/data/categories.ts',
+      fileName: 'categories.ts',
+      openFileFromNotification: false,
+      showNotification: false,
+      replace: false,
     );
 
     String rawJson = await savedFile.readAsString();

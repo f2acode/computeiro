@@ -20,7 +20,13 @@ Future<bool> _checkPermission() async {
   return true;
 }
 
-Future<File> fetchData(String link, String fileName) async {
+Future<File> fetchData({
+  String link,
+  String fileName,
+  bool showNotification,
+  bool openFileFromNotification,
+  bool replace,
+}) async {
   if (!await _checkPermission()) return null;
 
   final String localPath = (await _findLocalPath()) + '/Download';
@@ -33,15 +39,15 @@ Future<File> fetchData(String link, String fileName) async {
 
   File savedFile = File(savedDir.path + '/$fileName');
 
-  if (savedFile.existsSync()) {
+  if (!replace && savedFile.existsSync()) {
     return savedFile;
   }
 
   await FlutterDownloader.enqueue(
     url: link,
     savedDir: localPath,
-    showNotification: false,
-    openFileFromNotification: false,
+    showNotification: showNotification,
+    openFileFromNotification: openFileFromNotification,
   );
 
   return savedFile;
