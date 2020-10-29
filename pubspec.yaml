@@ -1,6 +1,6 @@
 name: computeiro
 description: A new Flutter project.
-version: 1.1.4+14
+version: 1.1.5+15
 
 environment:
   sdk: '>=2.10.0 <3.0.0'
@@ -20,6 +20,7 @@ dependencies:
   url_launcher: ^5.7.5
   share: ^0.6.5+3
   flutter_svg: ^0.19.0
+  dio: ^3.0.10
 
 dev_dependencies:
   flutter_test:

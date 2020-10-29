@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:dio/dio.dart';
 
 Future<String> _findLocalPath() async {
   final Directory directory = await getExternalStorageDirectory();
@@ -23,9 +24,8 @@ Future<bool> _checkPermission() async {
 Future<File> fetchData({
   String link,
   String fileName,
-  bool showNotification,
-  bool openFileFromNotification,
-  bool replace,
+  bool isDownloadVisible,
+  bool replace = true,
 }) async {
   if (!await _checkPermission()) return null;
 
@@ -43,12 +43,15 @@ Future<File> fetchData({
     return savedFile;
   }
 
-  await FlutterDownloader.enqueue(
-    url: link,
-    savedDir: localPath,
-    showNotification: showNotification,
-    openFileFromNotification: openFileFromNotification,
-  );
+  if (isDownloadVisible)
+    await FlutterDownloader.enqueue(
+      url: link,
+      savedDir: localPath,
+      showNotification: true,
+      openFileFromNotification: true,
+    );
+  else
+    await Dio().download(link, savedFile.path);
 
   return savedFile;
 }
