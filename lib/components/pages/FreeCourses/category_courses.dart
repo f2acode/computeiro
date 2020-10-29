@@ -10,8 +10,7 @@ class CategoryCourses extends StatelessWidget {
       link:
           'https://raw.githubusercontent.com/Leocardoso94/Free-Courses/master/src/data/courses.ts',
       fileName: 'courses.ts',
-      openFileFromNotification: false,
-      showNotification: false,
+      isDownloadVisible: false,
       replace: false,
     );
 

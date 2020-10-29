@@ -48,9 +48,7 @@ class _HomeState extends State<Home> {
                               await fetchData(
                                 link: assets[index].link,
                                 fileName: 'categories.ts',
-                                openFileFromNotification: true,
-                                showNotification: true,
-                                replace: true,
+                                isDownloadVisible: true,
                               );
                             },
                           ),
