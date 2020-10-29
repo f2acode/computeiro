@@ -35,7 +35,7 @@ class _AboutState extends State<About> {
       shrinkWrap: true,
       children: <Widget>[
         SvgPicture.asset(
-          'assets/icon/learn.svg',
+          'assets/figures/learn.svg',
           semanticsLabel: 'learn',
           height: 200,
         ),

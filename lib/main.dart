@@ -19,8 +19,17 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     precachePicture(
       SvgPicture.asset(
-        "assets/icon/learn.svg",
+        "assets/figures/learn.svg",
         semanticsLabel: 'learn',
+      ).pictureProvider,
+      context,
+    );
+
+    precachePicture(
+      SvgPicture.asset(
+        'assets/figures/warning.svg',
+        semanticsLabel: 'warning',
+        height: 200,
       ).pictureProvider,
       context,
     );
