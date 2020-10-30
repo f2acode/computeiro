@@ -1,3 +1,4 @@
+import 'package:computeiro/components/pages/CS/index.dart';
 import 'package:computeiro/components/pages/FreeCourses/index.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ import 'package:computeiro/components/pages/BottomNavigation/view_model.dart';
 class BottomNavigator extends StatelessWidget {
   Widget _handleWidgetOption(int index) {
     final List<Widget> possibleWidgets = <Widget>[
-      Home(),
+      CSCategories(),
       FreeCourses(),
       ExamsList(),
       About(),
@@ -37,12 +38,12 @@ class BottomNavigator extends StatelessWidget {
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: Icon(Icons.cloud_download),
-                label: 'Downloads',
+                icon: Icon(Icons.computer_rounded),
+                label: 'Computação',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.menu_book_sharp),
-                label: 'Cursos grátis',
+                label: 'Linguagens',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.grade),

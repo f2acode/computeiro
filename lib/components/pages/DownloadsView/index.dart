@@ -6,12 +6,12 @@ import 'package:computeiro/scoped_model/app_state.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class Home extends StatefulWidget {
+class PoscompList extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _PoscompListState createState() => _PoscompListState();
 }
 
-class _HomeState extends State<Home> {
+class _PoscompListState extends State<PoscompList> {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<AppState>(
@@ -24,6 +24,13 @@ class _HomeState extends State<Home> {
         }
 
         return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'Provas e gabaritos POSCOMP',
+              style: TextStyle(color: Theme.of(context).accentColor),
+            ),
+            centerTitle: true,
+          ),
           body: Column(
             children: <Widget>[
               Expanded(

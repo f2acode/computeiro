@@ -1,3 +1,4 @@
+import 'package:computeiro/components/pages/CS/content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,6 +7,7 @@ import 'package:computeiro/scoped_model/app_state.dart';
 import 'package:computeiro/core/style/index.dart';
 import 'package:computeiro/components/pages/index.dart';
 
+import 'components/pages/CS/content_list.dart';
 import 'components/pages/FreeCourses/category_courses.dart';
 import 'components/pages/FreeCourses/course.dart';
 
@@ -44,6 +46,9 @@ class App extends StatelessWidget {
           '/': (BuildContext context) => BottomNavigator(),
           '/category-course': (BuildContext context) => CategoryCourses(),
           '/course': (BuildContext context) => Course(),
+          '/content-list': (BuildContext context) => ContentList(),
+          '/content': (BuildContext context) => Content(),
+          '/poscomp-list': (BuildContext context) => PoscompList(),
         },
       ),
     );

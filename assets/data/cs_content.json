@@ -1,0 +1,15 @@
+{
+  "contents": [
+    {
+      "title": "Graph Theory with Applications",
+      "description": "This book is intended as an introduction to graph theory.",
+      "link": "http://www.maths.lse.ac.uk/Personal/jozef/LTCC/Graph_Theory_Bondy_Murty.pdf",
+      "author": "Bondy, Adrian, Murty, U.S.R.",
+      "level": "Beginner",
+      "categories": "graph theory",
+      "language": "English",
+      "image": "https://images.prismic.io/glitch-cms/2-react-starter-kit-1.jpg?auto=compress,format&rect=0,0,860,500&w=860&h=500",
+      "isFree": true
+    }
+  ]
+}
