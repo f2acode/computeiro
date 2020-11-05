@@ -97,7 +97,6 @@ class CategoryCourses extends StatelessWidget {
                 ? null
                 : EdgeInsets.symmetric(horizontal: 24),
             child: ListView(
-              shrinkWrap: true,
               children: courses.isNotEmpty
                   ? courses
                       .map(
