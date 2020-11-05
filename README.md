@@ -1,5 +1,5 @@
 <div align="center">
-<h1> Computeiro </h1>
+<h1> Computeiro - Free courses, books and exams</h1>
 
 <div>
     <a href='https://play.google.com/store/apps/details?id=pineapple.tech.computeiro'>
@@ -14,25 +14,32 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 <p align="center">
-  <a href="#the-app">The App</a> •
-  <a href="#contributing">Contributing</a> •
+    <a href="#free-courses">Free Courses</a> •
+  <a href="#contributing">Contributing ❤️</a> •
   <a href="#license">License</a>
 </p>
 </div>
 </div>
 
-## The app
+This project aims to provide free resources for anyone who needs to study subjects of computer science, this includes theoretical and practical courses, books and others.
 
-The basic idea is to provide power to people to study easily some subjects of computer science, for students, teachers, enthusiasts etc. So, any current/new features is always developed with them in mind.
+This project also includes an interactive exam of POSCOMP (an traditional computer science exam in Brazil).
+
+### Free Courses
+
+It's possible to check free courses and books on the app
+
+<p>
+<img style='margin-right: 20px' alt='Language courses' src='readme/programming.jpg' width='200px'/>
+<img alt='Javascript courses' src='readme/language.jpg' width='200px'/>
+</p>
 
 ### POSCOMP exams and responses
 
 It's possible to download all the historical original exams and responses of POSCOMP exams
 
 <p>
-<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/available_exams.webp' width='200px'/>
-
-<img alt='Computeiro App Downloaded exams' src='readme/downloaded_files.webp' width='200px'/>
+<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/available_exams.jpg' width='200px'/>
 </p>
 
 ### Make the POSCOMP test
@@ -40,18 +47,16 @@ It's possible to download all the historical original exams and responses of POS
 By using the [flutter tex library](https://github.com/shah-xad/flutter_tex) we provide an awesome visualization of each question during the exam.
 
 <p>
-<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/available_exams_do.jpeg' width='200px'/>
-
-<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/question.jpeg' width='200px'/>
-
-<img alt='Computeiro App Downloaded exams' src='readme/select_alt.jpeg' width='200px'/>
+<img style='margin-right: 20px' alt='Computeiro App Available exams' src='readme/question.jpg' width='200px'/>
 </p>
 
 ## Contributing
 
-Contributions are welcome!
-However, if it's going to be a major change, please create an issue first.
-Before starting to work on something, please comment on a specific issue and say you'd like to work on it.
+If you liked this project, give a star ⭐
+
+Review the app on Google Play 🚀
+
+Contributions are welcome! 💓
 
 ## License
 
