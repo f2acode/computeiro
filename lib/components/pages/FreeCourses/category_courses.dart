@@ -86,7 +86,7 @@ class CategoryCourses extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              'Cursos $category',
+              category,
               style: TextStyle(color: Theme.of(context).accentColor),
             ),
             centerTitle: true,

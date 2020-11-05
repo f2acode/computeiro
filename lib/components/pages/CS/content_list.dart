@@ -44,7 +44,7 @@ class ContentList extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              'Conteúdos $category',
+              category,
               style: TextStyle(color: Theme.of(context).accentColor),
             ),
             centerTitle: true,
